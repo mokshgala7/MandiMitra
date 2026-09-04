@@ -23,14 +23,16 @@ import { getSellingRecommendation } from '../services/recommendationService';
 import { getLocalWeather } from '../services/weatherService';
 import { getRecentSearches, saveSearchHistory } from '../services/searchService';
 import { getCurrentUser, getStoredUser, logout } from '../services/authService';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageSelector from '../components/LanguageSelector';
 
 // ─── CONSTANTS & DATA ─────────────────────────────────────
 
 const CROPS = [
-  { id: 'wheat', name: 'Wheat', hindiName: 'गेहूँ', img: wheatImg },
-  { id: 'rice', name: 'Rice', hindiName: 'चावल', img: riceImg },
-  { id: 'tomato', name: 'Tomato', hindiName: 'टमाटर', img: tomatoImg },
-  { id: 'cotton', name: 'Cotton', hindiName: 'कपास', img: cottonImg },
+  { id: 'wheat', name: 'Wheat', hindiName: 'गेहूँ', marathiName: 'गहू', img: wheatImg },
+  { id: 'rice', name: 'Rice', hindiName: 'चावल', marathiName: 'तांदूळ', img: riceImg },
+  { id: 'tomato', name: 'Tomato', hindiName: 'टमाटर', marathiName: 'टोमॅटो', img: tomatoImg },
+  { id: 'cotton', name: 'Cotton', hindiName: 'कपास', marathiName: 'कापूस', img: cottonImg },
 ];
 
 const PERIODS = ['1D', '1W', '3W', '1M', '6M', 'YTD'];
@@ -53,6 +55,7 @@ const StepTitle = ({ number, title, subtitle }) => (
 
 const FarmerDashboard = () => {
   const navigate = useNavigate();
+  const { language, t } = useLanguage();
   const forecastRef = useRef(null);
   const recommendationRef = useRef(null);
 
@@ -397,6 +400,36 @@ const FarmerDashboard = () => {
     navigate('/');
   };
 
+  const getLocalizedReason = (rec) => {
+    if (!rec) return '';
+    if (language === 'hi') {
+      if (rec.recommendation === 'SELL TODAY') {
+        return 'आज ही बेचें! वर्तमान मंडी भाव सबसे अनुकूल है और परिवहन के बाद अधिकतम शुद्ध लाभ सुनिश्चित करता है।';
+      } else {
+        return '2–3 दिन रुकें! एआई पूर्वानुमान के अनुसार आने वाले दिनों में भाव बढ़ने की संभावना है, जिससे आपको अधिक लाभ मिल सकता है।';
+      }
+    }
+    if (language === 'mr') {
+      if (rec.recommendation === 'SELL TODAY') {
+        return 'आजच विक्री करा! सध्याचा बाजारभाव अनुकूल असून वाहतूक खर्च वजा जाता सर्वाधिक निव्वळ नफा मिळत आहे.';
+      } else {
+        return '२–३ दिवस थांबा! एआय अंदाजानुसार पुढील काही दिवसांत बाजारभाव वाढण्याची शक्यता असून अधिक नफा मिळू शकतो.';
+      }
+    }
+    return rec.reason;
+  };
+
+  const getLocalizedWeatherAdvisory = (adv) => {
+    if (!adv) return '';
+    if (language === 'hi') {
+      return 'मौसम अनुकूल है, फसल की सुरक्षा और परिवहन में कोई बाधा नहीं है।';
+    }
+    if (language === 'mr') {
+      return 'हवामान अनुकूल असून मालवाहतुकीसाठी उत्तम परिस्थिती आहे.';
+    }
+    return adv;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAF6] text-gray-800 font-sans antialiased">
       {/* ─── NAVBAR ─── */}
@@ -411,13 +444,15 @@ const FarmerDashboard = () => {
                 <div className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">
                   Mandi<span className="text-primary-600">Mitra</span>
                 </div>
-                <div className="text-[10px] sm:text-xs text-gray-400 font-medium leading-none">Smart Farmer Selling Portal</div>
+                <div className="text-[10px] sm:text-xs text-gray-400 font-medium leading-none">{t('tagline')}</div>
               </div>
             </Link>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <LanguageSelector />
+
               {currentUser ? (
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   <div className="hidden sm:flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full text-xs font-semibold text-emerald-800">
                     <User size={14} className="text-emerald-600" />
                     <span>{currentUser.full_name}</span>
@@ -428,7 +463,7 @@ const FarmerDashboard = () => {
                     className="flex items-center gap-1.5 text-gray-500 hover:text-red-600 px-3 py-1.5 rounded-xl hover:bg-red-50 transition-colors text-xs sm:text-sm font-medium border border-gray-200"
                   >
                     <LogOut size={15} />
-                    <span>Logout</span>
+                    <span>{t('logout')}</span>
                   </button>
                 </div>
               ) : (
@@ -437,13 +472,13 @@ const FarmerDashboard = () => {
                     to="/login"
                     className="text-xs sm:text-sm font-semibold text-primary-600 hover:text-primary-700 px-3 py-1.5"
                   >
-                    Sign In
+                    {t('signIn')}
                   </Link>
                   <Link
                     to="/signup"
                     className="bg-primary-600 hover:bg-primary-700 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-xl shadow-xs"
                   >
-                    Register
+                    {t('register')}
                   </Link>
                 </div>
               )}
@@ -459,13 +494,13 @@ const FarmerDashboard = () => {
           <div className="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 bg-emerald-700/50 border border-emerald-500/40 text-emerald-200 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-2">
-                <ShieldCheck size={14} /> AI Decision Support Engine
+                <ShieldCheck size={14} /> {t('aiDecisionEngine')}
               </span>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white mb-2">
-                {currentUser ? `Welcome, ${currentUser.full_name.split(' ')[0]}!` : 'Welcome, Farmer!'} 🌾
+                {currentUser ? t('welcomeFarmer', { name: currentUser.full_name.split(' ')[0] }) : t('welcomeTitle')}
               </h1>
               <p className="text-emerald-100 text-xs sm:text-sm leading-relaxed max-w-xl">
-                Compare real Mandi prices within 500 KM with ₹10/km transport deduction, evaluate middleman offers, and inspect ML price forecasts to choose the most profitable selling strategy.
+                {t('heroSubtitle')}
               </p>
             </div>
 
@@ -476,7 +511,7 @@ const FarmerDashboard = () => {
               const rawPrecip = weather.precipitation_probability ?? weather.precipitation_prob ?? 0;
               const precipProb = !isNaN(Number(rawPrecip)) ? Math.round(Number(rawPrecip)) : 0;
               const condition = weather.condition || 'Fair';
-              const advisory = weather.advisory || weather.alert || 'Favorable conditions for market transport.';
+              const advisory = weather.advisory || weather.alert || t('favorableConditions');
               const wCode = weather.weather_code ?? 0;
 
               return (
@@ -490,7 +525,7 @@ const FarmerDashboard = () => {
                       <span className="text-xs text-emerald-200 capitalize font-medium">{condition}</span>
                     </div>
                     <div className="text-[11px] text-emerald-100 mt-0.5">
-                      Rain Risk: <span className="font-bold">{precipProb}%</span> • {advisory}
+                      {t('rainRisk')}: <span className="font-bold">{precipProb}%</span> • {advisory}
                     </div>
                   </div>
                 </div>
@@ -503,19 +538,25 @@ const FarmerDashboard = () => {
         {recentSearches.length > 0 && (
           <div className="bg-white rounded-2xl p-4 shadow-xs border border-gray-100 flex items-center gap-3 overflow-x-auto">
             <div className="flex items-center gap-1.5 text-xs font-bold text-gray-500 whitespace-nowrap">
-              <History size={15} /> Recent:
+              <History size={15} /> {t('recent')}
             </div>
             <div className="flex gap-2">
-              {recentSearches.slice(0, 5).map((item, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleSelectRecentSearch(item)}
-                  className="flex items-center gap-2 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-300 border border-gray-200 px-3 py-1.5 rounded-xl text-xs font-semibold text-gray-700 hover:text-emerald-800 transition-all whitespace-nowrap"
-                >
-                  <span className="capitalize">{item.crop}</span>
-                  <span className="text-gray-400">({item.quantity_kg} kg)</span>
-                </button>
-              ))}
+              {recentSearches.slice(0, 5).map((item, idx) => {
+                const cropObj = CROPS.find(c => c.id === item.crop.toLowerCase());
+                const cropNameDisplay = cropObj
+                  ? (language === 'mr' ? cropObj.marathiName : language === 'hi' ? cropObj.hindiName : cropObj.name)
+                  : item.crop;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => handleSelectRecentSearch(item)}
+                    className="flex items-center gap-2 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-300 border border-gray-200 px-3 py-1.5 rounded-xl text-xs font-semibold text-gray-700 hover:text-emerald-800 transition-all whitespace-nowrap"
+                  >
+                    <span className="capitalize">{cropNameDisplay}</span>
+                    <span className="text-gray-400">({item.quantity_kg} kg)</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
@@ -524,13 +565,15 @@ const FarmerDashboard = () => {
         <section className="bg-white rounded-3xl p-5 sm:p-7 shadow-xs border border-gray-100">
           <StepTitle
             number="1"
-            title="Choose Your Harvest Crop"
-            subtitle="Select one of the 4 supported crops to load Agmarknet market data"
+            title={t('step1Title')}
+            subtitle={t('step1Subtitle')}
           />
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-4">
             {CROPS.map((crop) => {
               const isSelected = selectedCrop?.id === crop.id;
+              const primaryName = language === 'mr' ? crop.marathiName : language === 'hi' ? crop.hindiName : crop.name;
+              const secondaryName = language === 'mr' ? crop.name : language === 'hi' ? crop.name : crop.hindiName;
               return (
                 <button
                   key={crop.id}
@@ -550,15 +593,15 @@ const FarmerDashboard = () => {
                   <div className="w-full aspect-square max-w-[130px] rounded-xl overflow-hidden mb-3 bg-gray-100 shadow-inner">
                     <img
                       src={crop.img}
-                      alt={crop.name}
+                      alt={primaryName}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="w-full">
                     <h3 className="font-bold text-gray-900 text-base sm:text-lg leading-tight">
-                      {crop.name}
+                      {primaryName}
                     </h3>
-                    <p className="text-xs text-gray-400 font-medium">{crop.hindiName}</p>
+                    <p className="text-xs text-gray-400 font-medium">{secondaryName}</p>
                   </div>
                 </button>
               );
@@ -570,7 +613,11 @@ const FarmerDashboard = () => {
         {isLoadingData && (
           <div className="flex items-center justify-center p-8 text-primary-600 font-bold gap-3">
             <RefreshCw className="animate-spin" size={24} />
-            Loading {selectedCrop?.name} market data...
+            {t('loadingData', {
+              crop: selectedCrop
+                ? (language === 'mr' ? selectedCrop.marathiName : language === 'hi' ? selectedCrop.hindiName : selectedCrop.name)
+                : ''
+            })}
           </div>
         )}
 
@@ -586,8 +633,8 @@ const FarmerDashboard = () => {
           <section className="bg-white rounded-3xl p-5 sm:p-7 shadow-xs border border-gray-100">
             <StepTitle
               number="2"
-              title="Harvest Quantity & Selling Options"
-              subtitle="Enter the weight of your produce and optionally configure middleman offers"
+              title={t('step2Title')}
+              subtitle={t('step2Subtitle')}
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
@@ -596,10 +643,10 @@ const FarmerDashboard = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-gray-700 font-bold text-sm">
                     <Scale size={18} className="text-primary-600" />
-                    <span>Total Produce Weight (in Kilograms)</span>
+                    <span>{t('produceWeight')}</span>
                   </div>
                   <p className="text-xs text-gray-500 mb-4">
-                    Enter the amount in KG. Our system automatically converts to Quintals for mandi comparison (1 Quintal = 100 KG).
+                    {t('weightHelp')}
                   </p>
 
                   <div className="relative">
@@ -616,9 +663,9 @@ const FarmerDashboard = () => {
                 </div>
 
                 <div className="mt-4 bg-emerald-50 border border-emerald-200 rounded-xl p-3.5 flex items-center justify-between">
-                  <div className="text-xs text-emerald-800 font-medium">Standard Market Units:</div>
+                  <div className="text-xs text-emerald-800 font-medium">{t('standardUnits')}</div>
                   <div className="text-base font-extrabold text-emerald-900">
-                    {quintals.toFixed(2)} Quintals
+                    {t('quintalsLabel', { q: quintals.toFixed(2) })}
                   </div>
                 </div>
               </div>
@@ -628,7 +675,7 @@ const FarmerDashboard = () => {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <DollarSign size={18} className="text-amber-600" />
-                    <span className="font-bold text-gray-900 text-sm">Local Middleman / Trader Offer?</span>
+                    <span className="font-bold text-gray-900 text-sm">{t('middlemanPrompt')}</span>
                   </div>
                   <button
                     type="button"
@@ -646,16 +693,14 @@ const FarmerDashboard = () => {
                 </div>
 
                 <p className="text-xs text-gray-500 mb-4">
-                  {hasMiddleman
-                    ? "Enter middleman's offered rate to see if travelling to a mandi yields higher net profit."
-                    : "Toggle ON if a local trader/middleman offered to buy at your doorstep without transport."}
+                  {hasMiddleman ? t('middlemanHelpOn') : t('middlemanHelpOff')}
                 </p>
 
                 {hasMiddleman ? (
                   <div className="space-y-3">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div>
-                        <label className="text-[11px] font-bold text-gray-600 block mb-1">Price (₹ / Quintal)</label>
+                        <label className="text-[11px] font-bold text-gray-600 block mb-1">{t('pricePerQuintal')}</label>
                         <input
                           type="number"
                           placeholder="e.g. 2300"
@@ -665,7 +710,7 @@ const FarmerDashboard = () => {
                         />
                       </div>
                       <div>
-                        <label className="text-[11px] font-bold text-gray-600 block mb-1">Commission (%)</label>
+                        <label className="text-[11px] font-bold text-gray-600 block mb-1">{t('commissionPct')}</label>
                         <input
                           type="number"
                           placeholder="e.g. 2"
@@ -675,7 +720,7 @@ const FarmerDashboard = () => {
                         />
                       </div>
                       <div>
-                        <label className="text-[11px] font-bold text-gray-600 block mb-1">Other Deductions (₹)</label>
+                        <label className="text-[11px] font-bold text-gray-600 block mb-1">{t('otherDeductions')}</label>
                         <input
                           type="number"
                           placeholder="e.g. 100"
@@ -688,14 +733,14 @@ const FarmerDashboard = () => {
 
                     {middlemanCalc && middlemanCalc.net > 0 && (
                       <div className="bg-white border border-amber-200 rounded-xl p-3 flex justify-between items-center text-xs">
-                        <span className="text-gray-600 font-medium">Middleman Net Payout:</span>
+                        <span className="text-gray-600 font-medium">{t('middlemanNet')}</span>
                         <span className="text-base font-black text-amber-700">₹{middlemanCalc.net.toLocaleString('en-IN')}</span>
                       </div>
                     )}
                   </div>
                 ) : (
                   <div className="bg-white/60 border border-dashed border-gray-300 rounded-xl p-4 text-center text-xs text-gray-400">
-                    No middleman configured. You will compare Mandi net values directly.
+                    {t('noMiddlemanConfigured')}
                   </div>
                 )}
               </div>
@@ -711,8 +756,12 @@ const FarmerDashboard = () => {
                 <div className="flex items-center gap-2">
                   <BarChart2 className="text-primary-600" size={24} />
                   <div>
-                    <h3 className="font-bold text-gray-900 text-lg">{selectedCrop.name} Historical Price Trend</h3>
-                    <p className="text-xs text-gray-400">Agmarknet weighted average modal prices (₹ / Quintal)</p>
+                    <h3 className="font-bold text-gray-900 text-lg">
+                      {t('priceTrendTitle', {
+                        crop: language === 'mr' ? selectedCrop.marathiName : language === 'hi' ? selectedCrop.hindiName : selectedCrop.name
+                      })}
+                    </h3>
+                    <p className="text-xs text-gray-400">{t('priceTrendSubtitle')}</p>
                   </div>
                 </div>
 
@@ -753,7 +802,7 @@ const FarmerDashboard = () => {
                     />
                     <Tooltip
                       contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                      formatter={(value) => [`₹${value}`, 'Modal Price / Quintal']}
+                      formatter={(value) => [`₹${value}`, t('modalPricePerQtl')]}
                       labelStyle={{ fontWeight: 'bold', color: '#374151', marginBottom: '4px' }}
                     />
                     <Line
@@ -763,7 +812,7 @@ const FarmerDashboard = () => {
                       strokeWidth={3}
                       dot={false}
                       activeDot={{ r: 6, fill: '#16a34a', stroke: '#fff', strokeWidth: 2 }}
-                      name="Agmarknet Price"
+                      name={t('modalPricePerQtl')}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -777,8 +826,8 @@ const FarmerDashboard = () => {
           <section className="bg-white rounded-3xl p-5 sm:p-7 shadow-xs border border-gray-100">
             <StepTitle
               number="3"
-              title="📍 Farm Location & 500 KM Mandi Discovery"
-              subtitle="Find all registered Agmarknet mandis within 500 KM with real distance calculation"
+              title={t('step4Title')}
+              subtitle={t('step4Subtitle')}
             />
 
             <div className="flex flex-col sm:flex-row gap-6 mt-4">
@@ -789,9 +838,9 @@ const FarmerDashboard = () => {
                   className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed text-sm"
                 >
                   {isLocating ? (
-                    <><RefreshCw size={18} className="animate-spin" /> Detecting Location...</>
+                    <><RefreshCw size={18} className="animate-spin" /> {t('detectingLocation')}</>
                   ) : (
-                    <><Navigation size={18} /> Detect My Location</>
+                    <><Navigation size={18} /> {t('detectLocation')}</>
                   )}
                 </button>
 
@@ -804,7 +853,7 @@ const FarmerDashboard = () => {
                 {location && (
                   <div className="mt-4 bg-white px-4 py-3 rounded-xl border border-emerald-200 shadow-xs w-full">
                     <div className="text-xs font-bold text-emerald-700 flex items-center gap-1.5">
-                      <Check size={16} /> Location Set: {location.address || 'GPS Coordinates'}
+                      <Check size={16} /> {t('locationSet')} {location.address || 'GPS Coordinates'}
                     </div>
                     <div className="mt-1 text-[11px] text-gray-500 font-mono">
                       Lat: {location.latitude.toFixed(4)}, Lng: {location.longitude.toFixed(4)}
@@ -826,13 +875,13 @@ const FarmerDashboard = () => {
                   }`}
                 >
                   {isSearchingMandis ? (
-                    <><RefreshCw size={20} className="animate-spin" /> Analyzing 500 KM Mandis & Forecast...</>
+                    <><RefreshCw size={20} className="animate-spin" /> {t('findingMandisBtn')}</>
                   ) : (
-                    <><Truck size={20} /> Find Mandis & Get Recommendation</>
+                    <><Truck size={20} /> {t('findMandisBtn')}</>
                   )}
                 </button>
                 <div className="mt-2 text-center text-xs text-gray-400">
-                  Transits calculated at flat ₹10 / km one-way. Best option dynamically highlighted.
+                  {t('transportRuleNotice')}
                 </div>
               </div>
             </div>
@@ -845,20 +894,23 @@ const FarmerDashboard = () => {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
               <StepTitle
                 number="4"
-                title={`Mandis Within 500 KM (${nearbyMandisResponse.mandis.length} found)`}
-                subtitle={`Showing verified mandis for ${selectedCrop.name} with transport deductions for ${quintals.toFixed(2)} quintals`}
+                title={t('mandisFoundTitle', { count: nearbyMandisResponse.mandis.length })}
+                subtitle={t('mandisFoundSubtitle', {
+                  crop: language === 'mr' ? selectedCrop.marathiName : language === 'hi' ? selectedCrop.hindiName : selectedCrop.name,
+                  q: quintals.toFixed(2)
+                })}
               />
 
               <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl p-1">
-                <span className="text-xs font-bold text-gray-500 pl-2">Sort:</span>
+                <span className="text-xs font-bold text-gray-500 pl-2">{t('sortLabel')}</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   className="bg-transparent text-xs font-bold text-gray-800 focus:outline-none border-none py-1 pr-6 cursor-pointer"
                 >
-                  <option value="net_value">⭐ Highest Net Value ▼</option>
-                  <option value="highest_price">Highest Mandi Price ▼</option>
-                  <option value="nearest">Nearest Distance ▼</option>
+                  <option value="net_value">{t('sortHighestNet')}</option>
+                  <option value="highest_price">{t('sortHighestPrice')}</option>
+                  <option value="nearest">{t('sortNearest')}</option>
                 </select>
               </div>
             </div>
@@ -866,9 +918,11 @@ const FarmerDashboard = () => {
             {nearbyMandisResponse.mandis.length === 0 ? (
               <div className="bg-gray-50 border border-gray-200 p-8 rounded-2xl flex flex-col items-center justify-center text-center">
                 <MapPin className="text-gray-400 mb-3" size={32} />
-                <h4 className="text-lg font-bold text-gray-800 mb-2">No Active Mandis Within 500 KM</h4>
+                <h4 className="text-lg font-bold text-gray-800 mb-2">{t('noMandisFound')}</h4>
                 <p className="text-sm text-gray-500 max-w-lg">
-                  No mandis trading {selectedCrop.name} were located within 500 km of your current coordinates. Try selecting another crop or testing with a different location.
+                  {t('noMandisFoundDesc', {
+                    crop: language === 'mr' ? selectedCrop.marathiName : language === 'hi' ? selectedCrop.hindiName : selectedCrop.name
+                  })}
                 </p>
               </div>
             ) : (
@@ -885,7 +939,7 @@ const FarmerDashboard = () => {
                     {/* BEST OPTION BADGE */}
                     {mandi.is_best && (
                       <div className="absolute -top-3 left-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[11px] font-black px-3 py-0.5 rounded-full shadow-md flex items-center gap-1 uppercase tracking-wider">
-                        <Award size={13} /> ⭐ BEST OPTION
+                        <Award size={13} /> {t('bestOptionBadge')}
                       </div>
                     )}
 
@@ -898,26 +952,26 @@ const FarmerDashboard = () => {
                           <div className="text-xs text-gray-500">{mandi.district}, {mandi.state}</div>
                         </div>
                         <div className="flex items-center gap-1 text-emerald-700 font-bold text-xs bg-emerald-50 px-2 py-1 rounded-lg shrink-0">
-                          <MapPin size={13} /> {Math.round(mandi.distance_km)} km
+                          <MapPin size={13} /> {Math.round(mandi.distance_km)} {t('kmAway')}
                         </div>
                       </div>
 
                       {/* FINANCIAL BREAKDOWN */}
                       <div className="mt-4 bg-gray-50 rounded-xl p-3 space-y-1.5 text-xs">
                         <div className="flex justify-between text-gray-600">
-                          <span>Mandi Price:</span>
+                          <span>{t('mandiPriceLabel')}</span>
                           <span className="font-bold text-gray-900">₹{mandi.latest_price} / Qtl</span>
                         </div>
                         <div className="flex justify-between text-gray-600">
-                          <span>Gross Value ({quintals.toFixed(1)} Q):</span>
+                          <span>{t('grossValueLabel', { q: quintals.toFixed(1) })}</span>
                           <span className="font-semibold text-gray-800">₹{mandi.gross_value.toLocaleString('en-IN')}</span>
                         </div>
                         <div className="flex justify-between text-red-600">
-                          <span>Transport ({Math.round(mandi.distance_km)} km × ₹10):</span>
+                          <span>{t('transportDeductionLabel', { km: Math.round(mandi.distance_km) })}</span>
                           <span className="font-semibold">-₹{mandi.transport_cost.toLocaleString('en-IN')}</span>
                         </div>
                         <div className="border-t border-gray-200 pt-1.5 flex justify-between items-baseline font-black">
-                          <span className="text-gray-800">Net Mandi Value:</span>
+                          <span className="text-gray-800">{t('netMandiValueLabel')}</span>
                           <span className="text-base text-emerald-700">₹{mandi.net_value.toLocaleString('en-IN')}</span>
                         </div>
                       </div>
@@ -933,7 +987,7 @@ const FarmerDashboard = () => {
                         }`}
                       >
                         <Sparkles size={14} className={predictionState.targetMandi?.mandi_id === mandi.mandi_id ? 'text-amber-600' : 'text-primary-600'} />
-                        <span>AI Price Forecast</span>
+                        <span>{t('aiForecastBtn')}</span>
                       </button>
                     </div>
                   </div>
@@ -948,8 +1002,8 @@ const FarmerDashboard = () => {
           <section ref={recommendationRef} className="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-emerald-100">
             <StepTitle
               number="5"
-              title="🎯 MandiMitra Recommendation Engine"
-              subtitle="Algorithmic selling decision comparing Mandi Net, Middleman Offer & ML Forecast"
+              title={t('recommendationTitle')}
+              subtitle={t('recommendationSubtitle')}
             />
 
             <div className={`mt-4 rounded-3xl p-6 sm:p-8 border-2 ${
@@ -965,21 +1019,21 @@ const FarmerDashboard = () => {
                         ? 'bg-emerald-600 text-white'
                         : 'bg-amber-600 text-white'
                     }`}>
-                      {recommendation.recommendation}
+                      {recommendation.recommendation === 'SELL TODAY' ? t('sellToday') : t('holdDays')}
                     </span>
                     <span className="text-xs text-gray-500 font-semibold">
-                      Produce: {recommendation.quantity_kg} KG ({recommendation.quantity_quintals} Quintals)
+                      {t('produceLabel')} {recommendation.quantity_kg} KG ({recommendation.quantity_quintals} {t('quintalsLabel', { q: '' }).trim()})
                     </span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mt-3 leading-tight">
-                    {recommendation.reason}
+                    {getLocalizedReason(recommendation)}
                   </h3>
 
                   {recommendation.weather_advisory && (
                     <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-gray-700 bg-white/70 px-3 py-2 rounded-xl border border-gray-200/60 w-fit">
                       <CloudSun size={16} className="text-amber-600" />
-                      <span>Weather factor: {recommendation.weather_advisory}</span>
+                      <span>{t('weatherFactor')} {getLocalizedWeatherAdvisory(recommendation.weather_advisory)}</span>
                     </div>
                   )}
                 </div>
@@ -987,21 +1041,21 @@ const FarmerDashboard = () => {
                 {/* COMPARISON METRICS PILL */}
                 <div className="w-full lg:w-auto bg-white rounded-2xl p-5 border border-gray-200 shadow-xs space-y-3 min-w-[280px]">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-gray-500">Current Best Net:</span>
+                    <span className="text-gray-500">{t('currentBestNet')}</span>
                     <span className="font-extrabold text-gray-900 text-sm">
                       ₹{Math.round(recommendation.current_net_value).toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-gray-500">Predicted Future Net:</span>
+                    <span className="text-gray-500">{t('predictedFutureNet')}</span>
                     <span className="font-extrabold text-primary-700 text-sm">
                       ₹{Math.round(recommendation.expected_future_net_value).toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <div className="border-t border-gray-100 pt-2 flex justify-between items-center text-xs">
-                    <span className="text-gray-500">Expected Difference:</span>
+                    <span className="text-gray-500">{t('expectedDiff')}</span>
                     <span className={`font-black text-sm ${recommendation.potential_difference >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                       {recommendation.potential_difference >= 0 ? '+' : ''}₹{Math.round(recommendation.potential_difference).toLocaleString('en-IN')}
                     </span>
@@ -1017,16 +1071,19 @@ const FarmerDashboard = () => {
           <section ref={forecastRef} className="bg-white rounded-3xl p-5 sm:p-7 shadow-xs border border-amber-200">
             <StepTitle
               number="6"
-              title="📈 2-3 Day ML Price Forecast"
-              subtitle={`Machine learning model inference for ${predictionState.targetMandi.mandi_name} (${selectedCrop.name})`}
+              title={t('forecastTitle')}
+              subtitle={t('forecastSubtitle', {
+                mandi: predictionState.targetMandi.mandi_name,
+                crop: language === 'mr' ? selectedCrop.marathiName : language === 'hi' ? selectedCrop.hindiName : selectedCrop.name
+              })}
             />
 
             {predictionState.status === 'loading' && (
               <div className="bg-amber-50 border border-amber-100 rounded-2xl p-8 flex flex-col items-center justify-center">
                 <RefreshCw size={32} className="animate-spin text-amber-500 mb-4" />
-                <h4 className="font-bold text-amber-900 text-lg">Running Gradient Boosting Regressor...</h4>
+                <h4 className="font-bold text-amber-900 text-lg">{t('runningRegressor')}</h4>
                 <p className="text-amber-700 text-xs mt-2 max-w-md text-center">
-                  Calculating 40 temporal features, 30-day price lags and rolling aggregations for {predictionState.targetMandi.mandi_name}.
+                  {t('calculatingFeatures', { mandi: predictionState.targetMandi.mandi_name })}
                 </p>
               </div>
             )}
@@ -1045,34 +1102,36 @@ const FarmerDashboard = () => {
               <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-6">
                 <div className="flex flex-col sm:flex-row gap-6">
                   <div className="flex-1">
-                    <div className="text-xs uppercase font-bold text-amber-800 mb-1">Current Modal Price</div>
+                    <div className="text-xs uppercase font-bold text-amber-800 mb-1">{t('currentModalPrice')}</div>
                     <div className="text-3xl font-black text-amber-950 mb-4">
                       ₹{predictionState.data.current_price} <span className="text-sm font-semibold text-amber-800">/ Quintal</span>
                     </div>
 
-                    <div className="text-xs uppercase font-bold text-amber-800 mb-3">Expected 3-Day Prices</div>
+                    <div className="text-xs uppercase font-bold text-amber-800 mb-3">{t('expected3Day')}</div>
                     <div className="grid grid-cols-3 gap-3">
                       <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center">
-                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">Tomorrow</div>
+                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">{t('tomorrow')}</div>
                         <div className="text-lg font-extrabold text-gray-900">₹{predictionState.data.forecast.day_1}</div>
                       </div>
                       <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center">
-                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">Day 2</div>
+                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">{t('day2')}</div>
                         <div className="text-lg font-extrabold text-gray-900">₹{predictionState.data.forecast.day_2}</div>
                       </div>
                       <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center">
-                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">Day 3</div>
+                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">{t('day3')}</div>
                         <div className="text-lg font-extrabold text-gray-900">₹{predictionState.data.forecast.day_3}</div>
                       </div>
                     </div>
                   </div>
 
                   <div className="w-full sm:w-48 bg-white rounded-xl border border-amber-200 shadow-2xs p-4 flex flex-col justify-center items-center">
-                    <div className="text-xs uppercase font-bold text-gray-400 mb-2">Price Trend</div>
+                    <div className="text-xs uppercase font-bold text-gray-400 mb-2">{t('trendLabel')}</div>
                     {predictionState.data.trend === 'rising' && <TrendingUp size={44} className="text-emerald-600 mb-2" />}
                     {predictionState.data.trend === 'falling' && <TrendingDown size={44} className="text-red-500 mb-2" />}
                     {predictionState.data.trend === 'stable' && <Minus size={44} className="text-blue-500 mb-2" />}
-                    <div className="font-black text-lg text-gray-900 capitalize">{predictionState.data.trend}</div>
+                    <div className="font-black text-lg text-gray-900 capitalize">
+                      {predictionState.data.trend === 'rising' ? t('trendRising') : predictionState.data.trend === 'falling' ? t('trendFalling') : t('trendStable')}
+                    </div>
                   </div>
                 </div>
               </div>

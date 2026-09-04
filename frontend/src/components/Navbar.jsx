@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getStoredUser, getCurrentUser, logout } from '../services/authService';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageSelector from './LanguageSelector';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(getStoredUser());
+  const { t } = useLanguage();
 
   useEffect(() => {
     setUser(getStoredUser());
@@ -26,44 +29,46 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-3xl">🌾</span>
-            <span className="text-2xl font-bold text-primary-700">MandiMitra</span>
+            <span className="text-2xl font-bold text-primary-700">{t('appName')}</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">Home</Link>
-            <a href="/#how-it-works" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">How It Works</a>
-            <a href="/#about-us" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">About Us</a>
-            <a href="/#contact" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">Contact Us</a>
+          <div className="hidden md:flex items-center space-x-7">
+            <Link to="/" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">{t('home')}</Link>
+            <a href="/#how-it-works" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">{t('howItWorks')}</a>
+            <a href="/#about-us" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">{t('aboutUs')}</a>
+            <a href="/#contact" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">{t('contactUs')}</a>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
+          {/* Language Selector + Action Buttons */}
+          <div className="flex items-center space-x-3">
+            <LanguageSelector />
+
             {user ? (
               <>
                 <Link
                   to="/dashboard"
-                  className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 text-sm"
+                  className="bg-primary-600 hover:bg-primary-700 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 text-xs sm:text-sm"
                 >
-                  <span>Dashboard</span>
-                  <span className="bg-primary-700 text-emerald-100 text-xs px-2 py-0.5 rounded-full font-normal">
+                  <span>{t('dashboard')}</span>
+                  <span className="bg-primary-700 text-emerald-100 text-[10px] sm:text-xs px-2 py-0.5 rounded-full font-normal">
                     {user.full_name?.split(' ')[0] || 'Farmer'}
                   </span>
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="text-gray-500 hover:text-red-600 text-sm font-medium px-3 py-2 rounded-lg transition-colors"
+                  className="text-gray-500 hover:text-red-600 text-xs sm:text-sm font-medium px-2.5 py-1.5 rounded-lg transition-colors"
                 >
-                  Logout
+                  {t('logout')}
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="text-primary-600 font-semibold hover:text-primary-700 px-4 py-2 hidden sm:block transition-colors">
-                  Sign In
+                <Link to="/login" className="text-primary-600 font-semibold hover:text-primary-700 px-3 py-2 hidden sm:block transition-colors text-sm">
+                  {t('signIn')}
                 </Link>
-                <Link to="/signup" className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg">
-                  Sign Up
+                <Link to="/signup" className="bg-primary-500 hover:bg-primary-600 text-white px-5 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm">
+                  {t('signUp')}
                 </Link>
               </>
             )}
