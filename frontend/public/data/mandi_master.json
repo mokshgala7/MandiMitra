@@ -1,0 +1,2310 @@
+[
+  {
+    "mandi_id": "maharashtra-buldhana-acf-agro-marketing-malkapur-dist-buldhana",
+    "mandi_name": "Acf Agro Marketing, Malkapur, Dist Buldhana",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-amrawati-frui-veg-market-",
+    "mandi_name": "Amrawati(Frui & Veg. Market)",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.085749,
+    "longitude": 77.666978,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-chandrapur-apmc-chimur",
+    "mandi_name": "APMC  Chimur",
+    "district": "Chandrapur",
+    "state": "Maharashtra",
+    "latitude": 20.4942258,
+    "longitude": 79.373825
+  },
+  {
+    "mandi_id": "maharashtra-palghar-apmc-vasai",
+    "mandi_name": "APMC  VASAI",
+    "district": "Palghar",
+    "state": "Maharashtra",
+    "latitude": 19.3428238,
+    "longitude": 72.805441
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-yawal",
+    "mandi_name": "APMC  Yawal",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.2260018,
+    "longitude": 75.6950825
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-aarni",
+    "mandi_name": "APMC Aarni",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-achalpur",
+    "mandi_name": "APMC Achalpur",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.240793,
+    "longitude": 77.427797,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-ahilyanagar",
+    "mandi_name": "APMC Ahilyanagar",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.1824833,
+    "longitude": 74.1005514
+  },
+  {
+    "mandi_id": "maharashtra-latur-apmc-ahmedpur",
+    "mandi_name": "APMC Ahmedpur",
+    "district": "Latur",
+    "state": "Maharashtra",
+    "latitude": 18.6962277,
+    "longitude": 76.9424531
+  },
+  {
+    "mandi_id": "maharashtra-hingoli-apmc-akhadabalapur",
+    "mandi_name": "APMC Akhadabalapur",
+    "district": "Hingoli",
+    "state": "Maharashtra",
+    "latitude": 19.5431163,
+    "longitude": 77.1739432
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-akkalkot",
+    "mandi_name": "APMC Akkalkot",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.515193,
+    "longitude": 76.212278
+  },
+  {
+    "mandi_id": "maharashtra-nandurbar-apmc-akkalkuwa",
+    "mandi_name": "APMC Akkalkuwa",
+    "district": "Nandurbar",
+    "state": "Maharashtra",
+    "latitude": 21.7005683,
+    "longitude": 74.00019
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-akluj",
+    "mandi_name": "APMC Akluj",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.8935101,
+    "longitude": 75.0121678
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-akola",
+    "mandi_name": "APMC Akola",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 20.7116604,
+    "longitude": 77.002632
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-akot",
+    "mandi_name": "APMC Akot",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 21.047461,
+    "longitude": 77.0552761
+  },
+  {
+    "mandi_id": "maharashtra-raigad-apmc-alibagh",
+    "mandi_name": "APMC Alibagh",
+    "district": "Raigad",
+    "state": "Maharashtra",
+    "latitude": 18.4928092,
+    "longitude": 73.138071
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-amalner",
+    "mandi_name": "APMC Amalner",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.0493189,
+    "longitude": 75.0573385
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-amarawati",
+    "mandi_name": "APMC Amarawati",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.085749,
+    "longitude": 77.666978,
+    "geocoding_source": "osm_nominatim_cache",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-ambad-vadigodri-",
+    "mandi_name": "APMC Ambad (Vadigodri)",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.918833,
+    "longitude": 75.8708599
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-ambejogai",
+    "mandi_name": "APMC Ambejogai",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.7048606,
+    "longitude": 76.4202757
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-anajngaon",
+    "mandi_name": "APMC Anajngaon",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.121372,
+    "longitude": 77.300304,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-apmc-bori-arab",
+    "mandi_name": "APMC APMC Bori Arab",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-arvi",
+    "mandi_name": "APMC Arvi",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.9361501,
+    "longitude": 78.2892169
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-ashti",
+    "mandi_name": "APMC Ashti",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 21.2056584,
+    "longitude": 78.1827905
+  },
+  {
+    "mandi_id": "maharashtra-latur-apmc-aurad-shahajani",
+    "mandi_name": "APMC Aurad Shahajani",
+    "district": "Latur",
+    "state": "Maharashtra",
+    "latitude": 18.0555297,
+    "longitude": 76.9286183
+  },
+  {
+    "mandi_id": "maharashtra-latur-apmc-ausa",
+    "mandi_name": "APMC Ausa",
+    "district": "Latur",
+    "state": "Maharashtra",
+    "latitude": 18.2510243,
+    "longitude": 76.500958
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-babhulgaon",
+    "mandi_name": "APMC Babhulgaon",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.55657,
+    "longitude": 78.165693
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-badnapur",
+    "mandi_name": "APMC Badnapur",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.9003575,
+    "longitude": 75.7441404
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-balapur",
+    "mandi_name": "APMC Balapur",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 20.7326962,
+    "longitude": 76.8363281
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-baramati",
+    "mandi_name": "APMC Baramati",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.1468199,
+    "longitude": 74.5842565
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-barshi",
+    "mandi_name": "APMC Barshi",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 18.2341108,
+    "longitude": 75.6875109
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-barshi-takli",
+    "mandi_name": "APMC Barshi Takli",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 20.7618122,
+    "longitude": 77.1921157
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-beed",
+    "mandi_name": "APMC Beed",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.9904059,
+    "longitude": 75.7542291
+  },
+  {
+    "mandi_id": "maharashtra-chandrapur-apmc-bhadrawati",
+    "mandi_name": "APMC Bhadrawati",
+    "district": "Chandrapur",
+    "state": "Maharashtra",
+    "latitude": 20.1108409,
+    "longitude": 79.1213108
+  },
+  {
+    "mandi_id": "maharashtra-bhandara-apmc-bhandara",
+    "mandi_name": "APMC Bhandara",
+    "district": "Bhandara",
+    "state": "Maharashtra",
+    "latitude": 21.1706698,
+    "longitude": 79.65658
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-bhiwapur",
+    "mandi_name": "APMC Bhiwapur",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 20.7638074,
+    "longitude": 79.5198922
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-bhokar",
+    "mandi_name": "APMC Bhokar",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.1948254,
+    "longitude": 77.683399
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-bhokardan",
+    "mandi_name": "APMC BHOKARDAN",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 20.2928317,
+    "longitude": 75.8040159
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-bhoom",
+    "mandi_name": "APMC Bhoom",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 18.4596302,
+    "longitude": 75.6598088
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-bhusaval",
+    "mandi_name": "APMC Bhusaval",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.0472554,
+    "longitude": 75.7880594
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-buldhana",
+    "mandi_name": "APMC Buldhana",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.4548493,
+    "longitude": 76.0955537
+  },
+  {
+    "mandi_id": "maharashtra-latur-apmc-chakur",
+    "mandi_name": "APMC Chakur",
+    "district": "Latur",
+    "state": "Maharashtra",
+    "latitude": 18.5174717,
+    "longitude": 76.8766202
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-chalisgaon",
+    "mandi_name": "APMC Chalisgaon",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.5023656,
+    "longitude": 74.96557
+  },
+  {
+    "mandi_id": "maharashtra-chandrapur-apmc-chandrapur",
+    "mandi_name": "APMC Chandrapur",
+    "district": "Chandrapur",
+    "state": "Maharashtra",
+    "latitude": 19.9426621,
+    "longitude": 79.8956424
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-chandur-bazar",
+    "mandi_name": "APMC Chandur Bazar",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.26519,
+    "longitude": 77.703069,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-chandur-railway",
+    "mandi_name": "APMC Chandur Railway",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 20.764872,
+    "longitude": 77.973035,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-chandwad",
+    "mandi_name": "APMC Chandwad",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.2781341,
+    "longitude": 74.2128638
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-chattrapati-sambhajinagar",
+    "mandi_name": "APMC Chattrapati Sambhajinagar",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 19.877263,
+    "longitude": 75.339024,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-chikali",
+    "mandi_name": "APMC Chikali",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-chopda",
+    "mandi_name": "APMC Chopda",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.2471857,
+    "longitude": 75.2989555
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-daryapur",
+    "mandi_name": "APMC Daryapur",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 20.964455,
+    "longitude": 77.333986,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-deoulgaon-raja",
+    "mandi_name": "APMC Deoulgaon Raja",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-devala",
+    "mandi_name": "APMC Devala",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.0112475,
+    "longitude": 73.7902364
+  },
+  {
+    "mandi_id": "maharashtra-nandurbar-apmc-dhadgaon",
+    "mandi_name": "APMC Dhadgaon",
+    "district": "Nandurbar",
+    "state": "Maharashtra",
+    "latitude": 21.8249883,
+    "longitude": 74.218645
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-dhamngaon-railway",
+    "mandi_name": "APMC Dhamngaon-Railway",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 20.793374,
+    "longitude": 78.177999,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-dharangaon",
+    "mandi_name": "APMC Dharangaon",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.0061881,
+    "longitude": 75.2863345
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-dharashiv",
+    "mandi_name": "APMC Dharashiv",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 18.1853567,
+    "longitude": 76.0420253
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-dharni",
+    "mandi_name": "APMC Dharni",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.562379,
+    "longitude": 76.890479,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-dhule-apmc-dhule",
+    "mandi_name": "APMC Dhule",
+    "district": "Dhule",
+    "state": "Maharashtra",
+    "latitude": 20.898,
+    "longitude": 74.7732
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-digras",
+    "mandi_name": "APMC Digras",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0968334,
+    "longitude": 77.7628184
+  },
+  {
+    "mandi_id": "maharashtra-dhule-apmc-dondaicha",
+    "mandi_name": "APMC Dondaicha",
+    "district": "Dhule",
+    "state": "Maharashtra",
+    "latitude": 21.3312641,
+    "longitude": 74.5628682
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-dound",
+    "mandi_name": "APMC Dound",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.5213738,
+    "longitude": 73.8545071
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-dudhani",
+    "mandi_name": "APMC Dudhani",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.3596886,
+    "longitude": 76.3692208
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-fulmbri",
+    "mandi_name": "APMC Fulmbri",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 20.130462,
+    "longitude": 75.49091,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-gangakhed",
+    "mandi_name": "APMC Gangakhed",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 18.9130998,
+    "longitude": 76.7557068
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-gangapur",
+    "mandi_name": "APMC Gangapur",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 19.795406,
+    "longitude": 75.066658,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-gevrai",
+    "mandi_name": "APMC Gevrai",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.9918442,
+    "longitude": 75.909784
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-ghansawangi",
+    "mandi_name": "APMC Ghansawangi",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.492486,
+    "longitude": 76.0196292
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-ghatanji",
+    "mandi_name": "APMC Ghatanji",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0193812,
+    "longitude": 78.2746661
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-ghoti",
+    "mandi_name": "APMC Ghoti",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 19.7167761,
+    "longitude": 73.6244742
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-hadgaon",
+    "mandi_name": "APMC Hadgaon",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.4786171,
+    "longitude": 77.6068042
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-himayatnagar",
+    "mandi_name": "APMC Himayatnagar",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.4112104,
+    "longitude": 77.8437928
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-hinganghat",
+    "mandi_name": "APMC Hinganghat",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.5340174,
+    "longitude": 78.8327986
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-hingna",
+    "mandi_name": "APMC Hingna",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 20.9916033,
+    "longitude": 78.8732421
+  },
+  {
+    "mandi_id": "maharashtra-hingoli-apmc-hingoli",
+    "mandi_name": "APMC Hingoli",
+    "district": "Hingoli",
+    "state": "Maharashtra",
+    "latitude": 19.7248322,
+    "longitude": 77.144485
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-indapur",
+    "mandi_name": "APMC Indapur",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.1125305,
+    "longitude": 74.9238654
+  },
+  {
+    "mandi_id": "maharashtra-sangli-apmc-islampur",
+    "mandi_name": "APMC Islampur",
+    "district": "Sangli",
+    "state": "Maharashtra",
+    "latitude": 17.0502198,
+    "longitude": 74.2661719
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-jafrabad",
+    "mandi_name": "APMC Jafrabad",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 20.207044,
+    "longitude": 76.004013
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-jalana",
+    "mandi_name": "APMC Jalana",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.4767573,
+    "longitude": 75.73336
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-jalgaon",
+    "mandi_name": "APMC Jalgaon",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.0100695,
+    "longitude": 75.5696003
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-jamkhed",
+    "mandi_name": "APMC Jamkhed",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 18.6687506,
+    "longitude": 75.3523878
+  },
+  {
+    "mandi_id": "maharashtra-hingoli-apmc-jawala-bajar",
+    "mandi_name": "APMC Jawala-Bajar",
+    "district": "Hingoli",
+    "state": "Maharashtra",
+    "latitude": 19.5431163,
+    "longitude": 77.1739432
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-jintur",
+    "mandi_name": "APMC Jintur",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.6109438,
+    "longitude": 76.7438258
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-kada",
+    "mandi_name": "APMC Kada",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.896328,
+    "longitude": 75.0785773
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-kaij",
+    "mandi_name": "APMC Kaij",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.7231007,
+    "longitude": 76.0379033
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-kalamb",
+    "mandi_name": "APMC Kalamb",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.3714183,
+    "longitude": 78.3432616
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-kalamb-dharashiv-",
+    "mandi_name": "APMC Kalamb (Dharashiv)",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 18.3244859,
+    "longitude": 75.9653371
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-kalmeshwar",
+    "mandi_name": "APMC Kalmeshwar",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.2374393,
+    "longitude": 78.9081689
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-kalvan",
+    "mandi_name": "APMC Kalvan",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.0112475,
+    "longitude": 73.7902364
+  },
+  {
+    "mandi_id": "maharashtra-thane-apmc-kalyan",
+    "mandi_name": "APMC Kalyan",
+    "district": "Thane",
+    "state": "Maharashtra",
+    "latitude": 19.2396742,
+    "longitude": 73.1366482
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-kamthi",
+    "mandi_name": "APMC Kamthi",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.0711616,
+    "longitude": 78.6274527
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-kandhar",
+    "mandi_name": "APMC Kandhar",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 18.8424512,
+    "longitude": 77.2510666
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-kannad",
+    "mandi_name": "APMC Kannad",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 20.245473,
+    "longitude": 75.143786,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-satara-apmc-karad",
+    "mandi_name": "APMC Karad",
+    "district": "Satara",
+    "state": "Maharashtra",
+    "latitude": 17.2746815,
+    "longitude": 74.1886849
+  },
+  {
+    "mandi_id": "maharashtra-washim-apmc-karanja",
+    "mandi_name": "APMC Karanja",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.4820707,
+    "longitude": 77.489234
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-karjat",
+    "mandi_name": "APMC Karjat",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 18.57983,
+    "longitude": 75.0015318
+  },
+  {
+    "mandi_id": "maharashtra-raigad-apmc-karjat-raigad-",
+    "mandi_name": "APMC Karjat(Raigad)",
+    "district": "Raigad",
+    "state": "Maharashtra",
+    "latitude": 18.9085763,
+    "longitude": 73.3211364
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-karmala",
+    "mandi_name": "APMC Karmala",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 18.321381,
+    "longitude": 75.1168773
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-katol",
+    "mandi_name": "APMC Katol",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.2751818,
+    "longitude": 78.5865696
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-khamgaon",
+    "mandi_name": "APMC Khamgaon",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.6502239,
+    "longitude": 76.5591868
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-khed",
+    "mandi_name": "APMC Khed",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.850107,
+    "longitude": 73.8380331
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-kille-dharur",
+    "mandi_name": "APMC Kille Dharur",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.9918442,
+    "longitude": 75.909784
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-kinwat",
+    "mandi_name": "APMC Kinwat",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.577469,
+    "longitude": 78.2440088
+  },
+  {
+    "mandi_id": "maharashtra-kolhapur-apmc-kolhapur",
+    "mandi_name": "APMC Kolhapur",
+    "district": "Kolhapur",
+    "state": "Maharashtra",
+    "latitude": 16.7028412,
+    "longitude": 74.2405329
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-kopargaon",
+    "mandi_name": "APMC Kopargaon",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.8370037,
+    "longitude": 74.4829123
+  },
+  {
+    "mandi_id": "maharashtra-chandrapur-apmc-korpana",
+    "mandi_name": "APMC Korpana",
+    "district": "Chandrapur",
+    "state": "Maharashtra",
+    "latitude": 19.7405915,
+    "longitude": 78.9893603
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-kurdwadi",
+    "mandi_name": "APMC Kurdwadi",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.8499067,
+    "longitude": 75.2763203
+  },
+  {
+    "mandi_id": "maharashtra-bhandara-apmc-lakhandur",
+    "mandi_name": "APMC Lakhandur",
+    "district": "Bhandara",
+    "state": "Maharashtra",
+    "latitude": 20.7549048,
+    "longitude": 79.8838444
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-lasalgaon",
+    "mandi_name": "APMC Lasalgaon",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.1426837,
+    "longitude": 74.2377507
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-lasur-station",
+    "mandi_name": "APMC Lasur Station",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 19.926345,
+    "longitude": 75.011862,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-loha",
+    "mandi_name": "APMC Loha",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 18.9360844,
+    "longitude": 77.1015489
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-lonar",
+    "mandi_name": "APMC Lonar",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 19.9830917,
+    "longitude": 76.4911448
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-mahagaon",
+    "mandi_name": "APMC Mahagaon",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 19.8336102,
+    "longitude": 77.7582751
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-majalgaon",
+    "mandi_name": "APMC Majalgaon",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 19.1551307,
+    "longitude": 76.2099185
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-malegaon",
+    "mandi_name": "APMC Malegaon",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.5576062,
+    "longitude": 74.5246514
+  },
+  {
+    "mandi_id": "maharashtra-washim-apmc-malegaon-washim-",
+    "mandi_name": "APMC Malegaon(Washim)",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.2585033,
+    "longitude": 76.976574
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-malkapur",
+    "mandi_name": "APMC Malkapur",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.891958,
+    "longitude": 76.2040353
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-manchar",
+    "mandi_name": "APMC Manchar",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 19.0033298,
+    "longitude": 73.942711
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-mandhal",
+    "mandi_name": "APMC Mandhal",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 20.9522941,
+    "longitude": 79.4610983
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-mangal-wedha",
+    "mandi_name": "APMC Mangal Wedha",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.8499067,
+    "longitude": 75.2763203
+  },
+  {
+    "mandi_id": "maharashtra-raigad-apmc-mangaon",
+    "mandi_name": "APMC Mangaon",
+    "district": "Raigad",
+    "state": "Maharashtra",
+    "latitude": 18.247448,
+    "longitude": 73.275442
+  },
+  {
+    "mandi_id": "maharashtra-washim-apmc-mangrulpeer",
+    "mandi_name": "APMC Mangrulpeer",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.2874178,
+    "longitude": 77.2369655
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-manmad",
+    "mandi_name": "APMC Manmad",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.2519828,
+    "longitude": 74.4392286
+  },
+  {
+    "mandi_id": "maharashtra-washim-apmc-manora",
+    "mandi_name": "APMC Manora",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.2247109,
+    "longitude": 77.5502264
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-mantha",
+    "mandi_name": "APMC Mantha",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.7302305,
+    "longitude": 76.3346934
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-manwat",
+    "mandi_name": "APMC Manwat",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.2990519,
+    "longitude": 76.4938736
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-maregoan",
+    "mandi_name": "APMC Maregoan",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-mauda",
+    "mandi_name": "APMC Mauda",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.1438248,
+    "longitude": 79.3955738
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-mehekar",
+    "mandi_name": "APMC Mehekar",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-morshi",
+    "mandi_name": "APMC Morshi",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.279869,
+    "longitude": 77.944751,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-motala",
+    "mandi_name": "APMC Motala",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.6850169,
+    "longitude": 76.1528804
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-mudkhed",
+    "mandi_name": "APMC Mudkhed",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.1393504,
+    "longitude": 77.501393
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-mukhed",
+    "mandi_name": "APMC Mukhed",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 18.5753653,
+    "longitude": 77.3839246
+  },
+  {
+    "mandi_id": "maharashtra-mumbai-apmc-mumbai",
+    "mandi_name": "APMC Mumbai",
+    "district": "Mumbai",
+    "state": "Maharashtra",
+    "latitude": 19.0830223,
+    "longitude": 73.0096292
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-murtizapur",
+    "mandi_name": "APMC Murtizapur",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 20.6919255,
+    "longitude": 77.0170008
+  },
+  {
+    "mandi_id": "maharashtra-raigad-apmc-murud",
+    "mandi_name": "APMC Murud",
+    "district": "Raigad",
+    "state": "Maharashtra",
+    "latitude": 18.3220393,
+    "longitude": 72.9604835
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-murum",
+    "mandi_name": "APMC Murum",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 17.786978,
+    "longitude": 76.476106
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-nagpur",
+    "mandi_name": "APMC Nagpur",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 20.5340174,
+    "longitude": 78.8327986
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-naigaon",
+    "mandi_name": "APMC Naigaon",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 18.8766865,
+    "longitude": 77.5119088
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-nanded",
+    "mandi_name": "APMC Nanded",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.1725722,
+    "longitude": 77.2914124
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-nandgaon",
+    "mandi_name": "APMC Nandgaon",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.3094018,
+    "longitude": 74.6597622
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-nandgaon-khandeshwar",
+    "mandi_name": "APMC Nandgaon Khandeshwar",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 20.696614,
+    "longitude": 77.763455,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-nandura",
+    "mandi_name": "APMC Nandura",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.8385687,
+    "longitude": 76.4603069
+  },
+  {
+    "mandi_id": "maharashtra-nandurbar-apmc-nandurbar",
+    "mandi_name": "APMC Nandurbar",
+    "district": "Nandurbar",
+    "state": "Maharashtra",
+    "latitude": 21.3737635,
+    "longitude": 74.2445558
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-narkhed",
+    "mandi_name": "APMC Narkhed",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.4713218,
+    "longitude": 78.5337171
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-nasik",
+    "mandi_name": "APMC Nasik",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 19.9480582,
+    "longitude": 73.8420837
+  },
+  {
+    "mandi_id": "maharashtra-nandurbar-apmc-navapur",
+    "mandi_name": "APMC Navapur",
+    "district": "Nandurbar",
+    "state": "Maharashtra",
+    "latitude": 21.1666239,
+    "longitude": 73.7725174
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-ner-parasopant",
+    "mandi_name": "APMC Ner Parasopant",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-newasa",
+    "mandi_name": "APMC Newasa",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.3657538,
+    "longitude": 75.2060859
+  },
+  {
+    "mandi_id": "maharashtra-latur-apmc-nilanga",
+    "mandi_name": "APMC Nilanga",
+    "district": "Latur",
+    "state": "Maharashtra",
+    "latitude": 18.0837667,
+    "longitude": 76.7992287
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-pachora",
+    "mandi_name": "APMC Pachora",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.6562576,
+    "longitude": 75.4011092
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-paithan",
+    "mandi_name": "APMC Paithan",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 19.583556,
+    "longitude": 75.430264,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-palam",
+    "mandi_name": "APMC Palam",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.0101426,
+    "longitude": 76.9516847
+  },
+  {
+    "mandi_id": "maharashtra-palghar-apmc-palghar",
+    "mandi_name": "APMC Palghar",
+    "district": "Palghar",
+    "state": "Maharashtra",
+    "latitude": 19.6978882,
+    "longitude": 72.7718888
+  },
+  {
+    "mandi_id": "maharashtra-sangli-apmc-palus",
+    "mandi_name": "APMC Palus",
+    "district": "Sangli",
+    "state": "Maharashtra",
+    "latitude": 17.0449956,
+    "longitude": 74.4365833
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-pandhakawada",
+    "mandi_name": "APMC Pandhakawada",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-pandharpur",
+    "mandi_name": "APMC Pandharpur",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.7255921,
+    "longitude": 75.3001936
+  },
+  {
+    "mandi_id": "maharashtra-raigad-apmc-panvel",
+    "mandi_name": "APMC Panvel",
+    "district": "Raigad",
+    "state": "Maharashtra",
+    "latitude": 18.9895249,
+    "longitude": 73.1221935
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-parali-vaijyanath",
+    "mandi_name": "APMC Parali Vaijyanath",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.9918442,
+    "longitude": 75.909784
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-paranda",
+    "mandi_name": "APMC Paranda",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 18.2683477,
+    "longitude": 75.4507536
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-parbhani",
+    "mandi_name": "APMC Parbhani",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.2447104,
+    "longitude": 76.776084
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-parola",
+    "mandi_name": "APMC Parola",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.8313089,
+    "longitude": 75.1149176
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-parshiwani",
+    "mandi_name": "APMC Parshiwani",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.1498134,
+    "longitude": 79.0820556
+  },
+  {
+    "mandi_id": "maharashtra-jalna-apmc-partur",
+    "mandi_name": "APMC Partur",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.4882762,
+    "longitude": 76.2606978
+  },
+  {
+    "mandi_id": "maharashtra-satara-apmc-patan",
+    "mandi_name": "APMC Patan",
+    "district": "Satara",
+    "state": "Maharashtra",
+    "latitude": 17.3743623,
+    "longitude": 73.9038283
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-pathardi",
+    "mandi_name": "APMC Pathardi",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.1717199,
+    "longitude": 75.174557
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-pathari",
+    "mandi_name": "APMC Pathari",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.260569,
+    "longitude": 76.433307
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-patoda",
+    "mandi_name": "APMC Patoda",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.8388363,
+    "longitude": 75.4635063
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-patur",
+    "mandi_name": "APMC Patur",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 20.4229458,
+    "longitude": 76.8632469
+  },
+  {
+    "mandi_id": "maharashtra-bhandara-apmc-pavani",
+    "mandi_name": "APMC Pavani",
+    "district": "Bhandara",
+    "state": "Maharashtra",
+    "latitude": 20.8257899,
+    "longitude": 79.657106
+  },
+  {
+    "mandi_id": "maharashtra-satara-apmc-phaltan",
+    "mandi_name": "APMC Phaltan",
+    "district": "Satara",
+    "state": "Maharashtra",
+    "latitude": 17.9579342,
+    "longitude": 74.4142354
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-pimpalgaon-baswant",
+    "mandi_name": "APMC Pimpalgaon Baswant",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.163372,
+    "longitude": 73.9850591
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-pulgaon",
+    "mandi_name": "APMC Pulgaon",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.7258046,
+    "longitude": 78.3176198
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-pune",
+    "mandi_name": "APMC Pune",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.1468199,
+    "longitude": 74.5842565
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-purna",
+    "mandi_name": "APMC Purna",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.1810438,
+    "longitude": 76.9940331
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-pusad",
+    "mandi_name": "APMC Pusad",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 19.8858198,
+    "longitude": 77.484612
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-rahata",
+    "mandi_name": "APMC Rahata",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.7170595,
+    "longitude": 74.4799561
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-rahuri",
+    "mandi_name": "APMC Rahuri",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.4031555,
+    "longitude": 74.6105605
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-ralegaon",
+    "mandi_name": "APMC Ralegaon",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.3277662,
+    "longitude": 78.6036857
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-ramtek",
+    "mandi_name": "APMC Ramtek",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.3935847,
+    "longitude": 79.2999141
+  },
+  {
+    "mandi_id": "maharashtra-ratnagiri-apmc-ratnagiri-nachane-",
+    "mandi_name": "APMC Ratnagiri (Nachane)",
+    "district": "Ratnagiri",
+    "state": "Maharashtra",
+    "latitude": 16.9959862,
+    "longitude": 73.3348468
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-apmc-raver",
+    "mandi_name": "APMC Raver",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 21.2222313,
+    "longitude": 76.0444182
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-sailu",
+    "mandi_name": "APMC Sailu",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.4548608,
+    "longitude": 76.4388052
+  },
+  {
+    "mandi_id": "maharashtra-dhule-apmc-sakri",
+    "mandi_name": "APMC Sakri",
+    "district": "Dhule",
+    "state": "Maharashtra",
+    "latitude": 20.9910829,
+    "longitude": 74.3154391
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-samudrapur",
+    "mandi_name": "APMC Samudrapur",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.6131435,
+    "longitude": 79.0240112
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-sangamner",
+    "mandi_name": "APMC Sangamner",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.4906351,
+    "longitude": 74.2466821
+  },
+  {
+    "mandi_id": "maharashtra-sangli-apmc-sangli",
+    "mandi_name": "APMC Sangli",
+    "district": "Sangli",
+    "state": "Maharashtra",
+    "latitude": 16.8502534,
+    "longitude": 74.5948885
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-satana",
+    "mandi_name": "APMC Satana",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.5991006,
+    "longitude": 74.2021078
+  },
+  {
+    "mandi_id": "maharashtra-satara-apmc-satara",
+    "mandi_name": "APMC Satara",
+    "district": "Satara",
+    "state": "Maharashtra",
+    "latitude": 17.2746815,
+    "longitude": 74.1886849
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-savner",
+    "mandi_name": "APMC Savner",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.4320477,
+    "longitude": 78.8876381
+  },
+  {
+    "mandi_id": "maharashtra-nandurbar-apmc-shahada",
+    "mandi_name": "APMC Shahada",
+    "district": "Nandurbar",
+    "state": "Maharashtra",
+    "latitude": 21.5409188,
+    "longitude": 74.4716616
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-shegaon",
+    "mandi_name": "APMC Shegaon",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.8007513,
+    "longitude": 76.6905257
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-shevgaon",
+    "mandi_name": "APMC Shevgaon",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.3797171,
+    "longitude": 75.2954872
+  },
+  {
+    "mandi_id": "maharashtra-dhule-apmc-shirpur",
+    "mandi_name": "APMC Shirpur",
+    "district": "Dhule",
+    "state": "Maharashtra",
+    "latitude": 21.3527715,
+    "longitude": 74.8841836
+  },
+  {
+    "mandi_id": "maharashtra-pune-apmc-shirur",
+    "mandi_name": "APMC Shirur",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.7610989,
+    "longitude": 74.209529
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-shrigonda",
+    "mandi_name": "APMC Shrigonda",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 18.6763838,
+    "longitude": 74.6709339
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-apmc-shrirampur",
+    "mandi_name": "APMC Shrirampur",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.6419712,
+    "longitude": 74.700709
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-sillod",
+    "mandi_name": "APMC Sillod",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 20.354928,
+    "longitude": 75.610469,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-sindi",
+    "mandi_name": "APMC Sindi",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.8046434,
+    "longitude": 78.8870287
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-apmc-sindkhed-raja",
+    "mandi_name": "APMC Sindkhed Raja",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.0566065,
+    "longitude": 76.3890318
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-sinner",
+    "mandi_name": "APMC Sinner",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 19.8972539,
+    "longitude": 74.1623127
+  },
+  {
+    "mandi_id": "maharashtra-solapur-apmc-solapur",
+    "mandi_name": "APMC Solapur",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.6799325,
+    "longitude": 75.927467
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-sonpeth",
+    "mandi_name": "APMC Sonpeth",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 18.9800057,
+    "longitude": 76.572859
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-apmc-tadkalas",
+    "mandi_name": "APMC Tadkalas",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.131303,
+    "longitude": 76.9442401
+  },
+  {
+    "mandi_id": "maharashtra-nandurbar-apmc-taloda",
+    "mandi_name": "APMC Taloda",
+    "district": "Nandurbar",
+    "state": "Maharashtra",
+    "latitude": 21.5627715,
+    "longitude": 74.2123371
+  },
+  {
+    "mandi_id": "maharashtra-sangli-apmc-tasgaon",
+    "mandi_name": "APMC Tasgaon",
+    "district": "Sangli",
+    "state": "Maharashtra",
+    "latitude": 17.0904859,
+    "longitude": 74.6832675
+  },
+  {
+    "mandi_id": "maharashtra-akola-apmc-telhara",
+    "mandi_name": "APMC Telhara",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 21.0377518,
+    "longitude": 76.8671322
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-tuljapur",
+    "mandi_name": "APMC Tuljapur",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 18.0086617,
+    "longitude": 76.0707924
+  },
+  {
+    "mandi_id": "maharashtra-bhandara-apmc-tumsar",
+    "mandi_name": "APMC Tumsar",
+    "district": "Bhandara",
+    "state": "Maharashtra",
+    "latitude": 21.3820399,
+    "longitude": 79.7500206
+  },
+  {
+    "mandi_id": "maharashtra-thane-apmc-ulhasnagar",
+    "mandi_name": "APMC Ulhasnagar",
+    "district": "Thane",
+    "state": "Maharashtra",
+    "latitude": 19.2236329,
+    "longitude": 73.1671515
+  },
+  {
+    "mandi_id": "maharashtra-nagpur-apmc-umared",
+    "mandi_name": "APMC Umared",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.1498134,
+    "longitude": 79.0820556
+  },
+  {
+    "mandi_id": "maharashtra-dharashiv-apmc-umarga",
+    "mandi_name": "APMC Umarga",
+    "district": "Dharashiv",
+    "state": "Maharashtra",
+    "latitude": 17.8365426,
+    "longitude": 76.6250052
+  },
+  {
+    "mandi_id": "maharashtra-nanded-apmc-umari",
+    "mandi_name": "APMC Umari",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.8435333,
+    "longitude": 78.2014427
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-umarkhed",
+    "mandi_name": "APMC Umarkhed",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 19.5982171,
+    "longitude": 77.9140993
+  },
+  {
+    "mandi_id": "maharashtra-kolhapur-apmc-vadgaonpeth",
+    "mandi_name": "APMC Vadgaonpeth",
+    "district": "Kolhapur",
+    "state": "Maharashtra",
+    "latitude": 16.7028412,
+    "longitude": 74.2405329
+  },
+  {
+    "mandi_id": "maharashtra-satara-apmc-vaduj",
+    "mandi_name": "APMC Vaduj",
+    "district": "Satara",
+    "state": "Maharashtra",
+    "latitude": 17.5950822,
+    "longitude": 74.4504661
+  },
+  {
+    "mandi_id": "maharashtra-beed-apmc-vadvani",
+    "mandi_name": "APMC Vadvani",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.9918442,
+    "longitude": 75.909784
+  },
+  {
+    "mandi_id": "maharashtra-satara-apmc-vai",
+    "mandi_name": "APMC Vai",
+    "district": "Satara",
+    "state": "Maharashtra",
+    "latitude": 17.9423742,
+    "longitude": 73.9192535
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-apmc-vaijpur",
+    "mandi_name": "APMC Vaijpur",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 19.948905,
+    "longitude": 74.833248,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-vani",
+    "mandi_name": "APMC Vani",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0956901,
+    "longitude": 78.9863578
+  },
+  {
+    "mandi_id": "maharashtra-chandrapur-apmc-varora",
+    "mandi_name": "APMC Varora",
+    "district": "Chandrapur",
+    "state": "Maharashtra",
+    "latitude": 20.3245584,
+    "longitude": 79.0068514
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-apmc-varud",
+    "mandi_name": "APMC Varud",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.471406,
+    "longitude": 78.28288,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-sangli-apmc-vita",
+    "mandi_name": "APMC Vita",
+    "district": "Sangli",
+    "state": "Maharashtra",
+    "latitude": 17.271977,
+    "longitude": 74.5372841
+  },
+  {
+    "mandi_id": "maharashtra-wardha-apmc-wardha",
+    "mandi_name": "APMC Wardha",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.5340174,
+    "longitude": 78.8327986
+  },
+  {
+    "mandi_id": "maharashtra-washim-apmc-washim",
+    "mandi_name": "APMC Washim",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.3721672,
+    "longitude": 77.2475837
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-yavatmal",
+    "mandi_name": "APMC Yavatmal",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.390344,
+    "longitude": 78.1328518
+  },
+  {
+    "mandi_id": "maharashtra-nashik-apmc-yeola",
+    "mandi_name": "APMC Yeola",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.0429079,
+    "longitude": 74.4880389
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-apmc-zarizamini",
+    "mandi_name": "APMC ZariZamini",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-wardha-ashti-karanja-",
+    "mandi_name": "Ashti(Karanja)",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.8256231,
+    "longitude": 78.6131455
+  },
+  {
+    "mandi_id": "maharashtra-solapur-barshi-vairag-",
+    "mandi_name": "Barshi(Vairag)",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.8499067,
+    "longitude": 75.2763203
+  },
+  {
+    "mandi_id": "maharashtra-jalna-bhokardan-pimpalgaon-renu-",
+    "mandi_name": "Bhokardan(Pimpalgaon Renu)",
+    "district": "Jalna",
+    "state": "Maharashtra",
+    "latitude": 19.918833,
+    "longitude": 75.8708599
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-bori",
+    "mandi_name": "Bori",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.4922722,
+    "longitude": 76.7308783
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-bsk-krishi-bazar-private-limited-mehkar-dist-buldhana",
+    "mandi_name": "Bsk Krishi Bazar Private Limited, Mehkar, Dist Buldhana",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-buldhana-dhad-",
+    "mandi_name": "Buldhana(Dhad)",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-chandrapur-chandrapur-ganjwad-",
+    "mandi_name": "Chandrapur(Ganjwad)",
+    "district": "Chandrapur",
+    "state": "Maharashtra",
+    "latitude": 20.0967555,
+    "longitude": 79.5045475
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-deulgaon-raja-balaji-agro-marketing-pvt-market-deulgaon-raja-dist-buldhana",
+    "mandi_name": "Deulgaon Raja Balaji Agro Marketing Pvt Market, Deulgaon Raja, Dist Buldhana",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-dhule-dondaicha-sindhkheda-",
+    "mandi_name": "Dondaicha (Sindhkheda)",
+    "district": "Dhule",
+    "state": "Maharashtra",
+    "latitude": 21.1305215,
+    "longitude": 74.4900614
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-govardhan-farm-produce-market-pvt-ltd-tal-chopda-dist-jalgaon",
+    "mandi_name": "Govardhan Farm Produce Market Pvt Ltd Tal Chopda  Dist Jalgaon",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.8428827,
+    "longitude": 75.5261246
+  },
+  {
+    "mandi_id": "maharashtra-nanded-hadgaon-tamsa-",
+    "mandi_name": "Hadgaon(Tamsa)",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.0942729,
+    "longitude": 77.4832628
+  },
+  {
+    "mandi_id": "maharashtra-parbhani-hari-har-khajagi-bazar-parisar-gangakhed-dist-parbhani",
+    "mandi_name": "Hari Har Khajagi Bazar Parisar, Gangakhed, Dist Parbhani",
+    "district": "Parbhani",
+    "state": "Maharashtra",
+    "latitude": 19.2901981,
+    "longitude": 76.6026443
+  },
+  {
+    "mandi_id": "maharashtra-hingoli-hingoli-kanegoan-naka-",
+    "mandi_name": "Hingoli(Kanegoan Naka)",
+    "district": "Hingoli",
+    "state": "Maharashtra",
+    "latitude": 19.5431163,
+    "longitude": 77.1739432
+  },
+  {
+    "mandi_id": "maharashtra-pune-indapur-bhigwan-",
+    "mandi_name": "Indapur(Bhigwan)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.1462392,
+    "longitude": 74.5742212
+  },
+  {
+    "mandi_id": "maharashtra-pune-indapur-nimgaon-ketki-",
+    "mandi_name": "Indapur(Nimgaon Ketki)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.5213738,
+    "longitude": 73.8545071
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-jagdamba-agrocare-pvt-ltd-pandharkawada-dist-yeotmal",
+    "mandi_name": "Jagdamba Agrocare Pvt Ltd, Pandharkawada, Dist Yeotmal",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-jalgaon-jamod-aasalgaon-",
+    "mandi_name": "Jalgaon Jamod(Aasalgaon)",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-jalgaon-masawat-",
+    "mandi_name": "Jalgaon(Masawat)",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.8428827,
+    "longitude": 75.5261246
+  },
+  {
+    "mandi_id": "maharashtra-pune-junnar-narayangaon-",
+    "mandi_name": "Junnar(Narayangaon)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 19.1226814,
+    "longitude": 73.9706925
+  },
+  {
+    "mandi_id": "maharashtra-beed-kada-ashti-",
+    "mandi_name": "Kada(Ashti)",
+    "district": "Beed",
+    "state": "Maharashtra",
+    "latitude": 18.896328,
+    "longitude": 75.0785773
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-karjat-rashin-",
+    "mandi_name": "Karjat(Rashin)",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.092952,
+    "longitude": 74.7493451
+  },
+  {
+    "mandi_id": "maharashtra-dhule-keshranand-cottex-pvt-agro-dondicha-dist-dhule",
+    "mandi_name": "Keshranand Cottex Pvt Agro, Dondicha, Dist Dhule",
+    "district": "Dhule",
+    "state": "Maharashtra",
+    "latitude": 21.1305215,
+    "longitude": 74.4900614
+  },
+  {
+    "mandi_id": "maharashtra-pune-khed-chakan-",
+    "mandi_name": "Khed(Chakan)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.7586864,
+    "longitude": 73.8613358
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-kisan-market-yard",
+    "mandi_name": "KISAN MARKET YARD",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-kolhapur-kolhapur-laxmipuri-",
+    "mandi_name": "Kolhapur(Laxmipuri)",
+    "district": "Kolhapur",
+    "state": "Maharashtra",
+    "latitude": 16.6978351,
+    "longitude": 74.2266285
+  },
+  {
+    "mandi_id": "maharashtra-washim-krushna-krishi-bazar-washim",
+    "mandi_name": "Krushna Krishi Bazar, Washim",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.2874178,
+    "longitude": 77.2369655
+  },
+  {
+    "mandi_id": "maharashtra-solapur-kurdwadi-modnimb-",
+    "mandi_name": "Kurdwadi(Modnimb)",
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "latitude": 17.8499067,
+    "longitude": 75.2763203
+  },
+  {
+    "mandi_id": "maharashtra-nashik-lasalgaon-niphad-",
+    "mandi_name": "Lasalgaon(Niphad)",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.1426837,
+    "longitude": 74.2377507
+  },
+  {
+    "mandi_id": "maharashtra-nashik-lasalgaon-vinchur-",
+    "mandi_name": "Lasalgaon(Vinchur)",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.0112475,
+    "longitude": 73.7902364
+  },
+  {
+    "mandi_id": "maharashtra-latur-latur-murud-",
+    "mandi_name": "Latur(Murud)",
+    "district": "Latur",
+    "state": "Maharashtra",
+    "latitude": 18.409642,
+    "longitude": 76.4661852
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-maharaja-agresen-pvt-krushi-utappan-bazar-samati-dist-buldhana",
+    "mandi_name": "Maharaja Agresen Pvt Krushi Utappan Bazar Samati, Dist Buldhana",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-mahesh-krushi-utpanna-bazar-digras-dist-yeotmal",
+    "mandi_name": "Mahesh Krushi Utpanna Bazar, Digras, Dist Yeotmal",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-hingoli-marathawada-shetkari-khajgi-bazar-parisar-vasmat-dist-hingoli",
+    "mandi_name": "Marathawada Shetkari Khajgi Bazar Parisar, Vasmat, Dist Hingoli",
+    "district": "Hingoli",
+    "state": "Maharashtra",
+    "latitude": 19.5431163,
+    "longitude": 77.1739432
+  },
+  {
+    "mandi_id": "maharashtra-pune-nira-saswad-",
+    "mandi_name": "Nira(Saswad)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.5213738,
+    "longitude": 73.8545071
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-omchatinya-multi-state-agro-purpose-co-op-society-dist-ahilyanagar",
+    "mandi_name": "Omchatinya Multi State Agro Purpose Co-Op Society, Dist Ahilyanagar",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.092952,
+    "longitude": 74.7493451
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-pachora-bhadgaon-",
+    "mandi_name": "PACHORA(BHADGAON)",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.8428827,
+    "longitude": 75.5261246
+  },
+  {
+    "mandi_id": "maharashtra-pune-pune-khadiki-",
+    "mandi_name": "Pune(Khadiki)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.5213738,
+    "longitude": 73.8545071
+  },
+  {
+    "mandi_id": "maharashtra-pune-pune-manjri-",
+    "mandi_name": "Pune(Manjri)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.5213738,
+    "longitude": 73.8545071
+  },
+  {
+    "mandi_id": "maharashtra-pune-pune-moshi-",
+    "mandi_name": "Pune(Moshi)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.6879806,
+    "longitude": 73.8343544
+  },
+  {
+    "mandi_id": "maharashtra-pune-pune-pimpri-",
+    "mandi_name": "Pune(Pimpri)",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "latitude": 18.6265994,
+    "longitude": 73.8033559
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-rahuri-songaon-",
+    "mandi_name": "Rahuri(Songaon)",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.092952,
+    "longitude": 74.7493451
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-rahuri-vambori-",
+    "mandi_name": "Rahuri(Vambori)",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.092952,
+    "longitude": 74.7493451
+  },
+  {
+    "mandi_id": "maharashtra-buldhana-sangrampur-varvatbakal-",
+    "mandi_name": "Sangrampur(Varvatbakal)",
+    "district": "Buldhana",
+    "state": "Maharashtra",
+    "latitude": 20.562845,
+    "longitude": 76.4086986
+  },
+  {
+    "mandi_id": "maharashtra-jalgaon-shantilal-jain-agro-produce-market-pvt-ltd-bodwad-dist-jalgaon",
+    "mandi_name": "Shantilal Jain Agro Produce Market Pvt Ltd, Bodwad, Dist Jalgaon",
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "latitude": 20.8428827,
+    "longitude": 75.5261246
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-shekari-krushi-khajgi-bazar-arni-dist-yavatmal",
+    "mandi_name": "Shekari Krushi Khajgi Bazar, Arni, Dist Yavatmal",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-nanded-shetkari-khajgi-bajar-parisar-tal-bhokar-dist-nanded",
+    "mandi_name": "Shetkari Khajgi Bajar Parisar, Tal Bhokar, Dist Nanded",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "latitude": 19.0942729,
+    "longitude": 77.4832628
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-shevgaon-bodhegaon-",
+    "mandi_name": "Shevgaon(Bodhegaon)",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.092952,
+    "longitude": 74.7493451
+  },
+  {
+    "mandi_id": "maharashtra-nashik-shivsiddha-govind-producer-company-ltd-sanchalit-khajgi-krushi-utpann-bajar-samati-abhona-kalwan",
+    "mandi_name": "Shivsiddha Govind Producer Company Ltd Sanchalit Khajgi Krushi Utpann Bajar Samati-Abhona-Kalwan",
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "latitude": 20.0112475,
+    "longitude": 73.7902364
+  },
+  {
+    "mandi_id": "maharashtra-akola-shri-gajanan-maharaj-khajagi-krushi-utpanna-bazar-akot-dist-akola",
+    "mandi_name": "Shri Gajanan Maharaj Khajagi Krushi Utpanna Bazar, Akot, Dist Akola",
+    "district": "Akola",
+    "state": "Maharashtra",
+    "latitude": 20.7618122,
+    "longitude": 77.1921157
+  },
+  {
+    "mandi_id": "maharashtra-ahilyanagar-shrirampur-belapur-",
+    "mandi_name": "Shrirampur(Belapur)",
+    "district": "Ahilyanagar",
+    "state": "Maharashtra",
+    "latitude": 19.092952,
+    "longitude": 74.7493451
+  },
+  {
+    "mandi_id": "maharashtra-chattrapati-sambhajinagar-sillod-bharadi-",
+    "mandi_name": "Sillod(Bharadi)",
+    "district": "Chattrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "latitude": 20.360379,
+    "longitude": 75.555103,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-wardha-sindi-selu-",
+    "mandi_name": "Sindi (Selu)",
+    "district": "Wardha",
+    "state": "Maharashtra",
+    "latitude": 20.8256231,
+    "longitude": 78.6131455
+  },
+  {
+    "mandi_id": "maharashtra-yavatmal-umarked-danki-",
+    "mandi_name": "Umarked(Danki)",
+    "district": "Yavatmal",
+    "state": "Maharashtra",
+    "latitude": 20.0638677,
+    "longitude": 78.3565663
+  },
+  {
+    "mandi_id": "maharashtra-amarawati-varud-rajura-bazar-",
+    "mandi_name": "Varud(Rajura Bazar)",
+    "district": "Amarawati",
+    "state": "Maharashtra",
+    "latitude": 21.412325,
+    "longitude": 78.274425,
+    "geocoding_source": "osm_nominatim",
+    "geocoding_confidence": "verified"
+  },
+  {
+    "mandi_id": "maharashtra-washim-washim-ansing-",
+    "mandi_name": "Washim(Ansing)",
+    "district": "Washim",
+    "state": "Maharashtra",
+    "latitude": 20.2874178,
+    "longitude": 77.2369655
+  }
+]

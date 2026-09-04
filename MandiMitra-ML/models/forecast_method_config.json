@@ -1,0 +1,34 @@
+{
+  "rice": {
+    "method": "persistence",
+    "chronos_mae": 126.6772,
+    "persistence_mae": 120.9205,
+    "ml_mae": 232.13,
+    "improvement_pct": -4.76,
+    "reason": "Persistence MAE ₹120.92 is lower than Chronos-2 MAE ₹126.68; persistence preferred for Rice"
+  },
+  "tomato": {
+    "method": "persistence",
+    "chronos_mae": 405.509,
+    "persistence_mae": 409.5864,
+    "ml_mae": 434.362,
+    "improvement_pct": 1.0,
+    "reason": "Persistence MAE ₹409.59 is nearly identical to Chronos-2 ₹405.51; persistence retained for lightweight deployment"
+  },
+  "wheat": {
+    "method": "chronos-2",
+    "chronos_mae": 62.754,
+    "persistence_mae": 67.553,
+    "ml_mae": 68.239,
+    "improvement_pct": 7.1,
+    "reason": "Chronos-2 MAE ₹62.75 genuinely beats Persistence ₹67.55 by 7.10% across 21 mandis; Chronos-2 selected for Wheat"
+  },
+  "cotton": {
+    "method": "persistence",
+    "chronos_mae": 135.177,
+    "persistence_mae": 103.625,
+    "ml_mae": 212.2251,
+    "improvement_pct": -30.45,
+    "reason": "Persistence MAE ₹103.62 is lower than Chronos-2 MAE ₹135.18 due to short seasonal data; persistence preferred for Cotton"
+  }
+}

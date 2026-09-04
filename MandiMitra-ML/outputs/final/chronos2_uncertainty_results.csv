@@ -1,0 +1,5 @@
+crop,nominal_interval,empirical_coverage_pct,average_interval_width_rs,average_actual_price,width_as_pct_of_price
+Rice,80% (q0.1 - q0.9),90.83,448.77,4126.36,10.88
+Tomato,80% (q0.1 - q0.9),78.59,1250.67,2663.65,46.95
+Wheat,80% (q0.1 - q0.9),77.86,187.86,3000.21,6.26
+Cotton,80% (q0.1 - q0.9),65.0,322.08,8072.31,3.99

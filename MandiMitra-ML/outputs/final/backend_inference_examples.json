@@ -1,0 +1,198 @@
+{
+  "price_forecast": {
+    "Wheat": {
+      "input": {
+        "crop": "wheat",
+        "market": "APMC Nagpur",
+        "current_price": 2650.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "wheat",
+        "market": "APMC Nagpur",
+        "current_price": 2650.0,
+        "predicted_price": 3423.28,
+        "predicted_prices": [
+          3423.28
+        ],
+        "forecast_method": "chronos-2",
+        "forecast_horizon": "3 market observations",
+        "uncertainty": {
+          "level": "LOW",
+          "lower_bound": 3403.09,
+          "upper_bound": 3424.88
+        }
+      }
+    },
+    "Rice": {
+      "input": {
+        "crop": "rice",
+        "market": "APMC Alibagh",
+        "current_price": 3500.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "rice",
+        "market": "APMC Alibagh",
+        "current_price": 3500.0,
+        "predicted_price": 3500.0,
+        "predicted_prices": [
+          3500.0
+        ],
+        "forecast_method": "persistence",
+        "forecast_horizon": "3 market observations",
+        "uncertainty": {
+          "level": "MEDIUM",
+          "lower_bound": 3267.87,
+          "upper_bound": 3732.13
+        }
+      }
+    },
+    "Tomato": {
+      "input": {
+        "crop": "tomato",
+        "market": "APMC Kamthi",
+        "current_price": 2770.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "tomato",
+        "market": "APMC Kamthi",
+        "current_price": 2770.0,
+        "predicted_price": 2770.0,
+        "predicted_prices": [
+          2770.0
+        ],
+        "forecast_method": "persistence",
+        "forecast_horizon": "3 market observations",
+        "uncertainty": {
+          "level": "HIGH",
+          "lower_bound": 2335.64,
+          "upper_bound": 3204.36
+        }
+      }
+    },
+    "Cotton": {
+      "input": {
+        "crop": "cotton",
+        "market": "APMC Hinganghat",
+        "current_price": 7900.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "cotton",
+        "market": "APMC Hinganghat",
+        "current_price": 7900.0,
+        "predicted_price": 7900.0,
+        "predicted_prices": [
+          7900.0
+        ],
+        "forecast_method": "persistence",
+        "forecast_horizon": "3 market observations",
+        "uncertainty": {
+          "level": "LOW",
+          "lower_bound": 7687.77,
+          "upper_bound": 8112.23
+        }
+      }
+    }
+  },
+  "price_direction": {
+    "Wheat": {
+      "input": {
+        "crop": "wheat",
+        "market": "APMC Nagpur",
+        "current_price": 2650.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "wheat",
+        "market": "APMC Nagpur",
+        "current_price": 2650.0,
+        "predicted_direction": "STABLE",
+        "confidence": 0.491,
+        "probabilities": {
+          "decrease": 0.243,
+          "stable": 0.491,
+          "increase": 0.266
+        },
+        "forecast_horizon": "3 market observations",
+        "movement_threshold_pct": 1.5,
+        "interpretation": "Price is expected to stable by more than 1.5% over ~3 observations with 49.1% model confidence.",
+        "status": "SUCCESS"
+      }
+    },
+    "Rice": {
+      "input": {
+        "crop": "rice",
+        "market": "APMC Alibagh",
+        "current_price": 3500.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "rice",
+        "market": "APMC Alibagh",
+        "current_price": 3500.0,
+        "predicted_direction": "STABLE",
+        "confidence": 0.578,
+        "probabilities": {
+          "decrease": 0.145,
+          "stable": 0.578,
+          "increase": 0.277
+        },
+        "forecast_horizon": "3 market observations",
+        "movement_threshold_pct": 1.5,
+        "interpretation": "Price is expected to stable by more than 1.5% over ~3 observations with 57.8% model confidence.",
+        "status": "SUCCESS"
+      }
+    },
+    "Tomato": {
+      "input": {
+        "crop": "tomato",
+        "market": "APMC Kamthi",
+        "current_price": 2770.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "tomato",
+        "market": "APMC Kamthi",
+        "current_price": 2770.0,
+        "predicted_direction": "STABLE",
+        "confidence": 0.414,
+        "probabilities": {
+          "decrease": 0.222,
+          "stable": 0.414,
+          "increase": 0.364
+        },
+        "forecast_horizon": "3 market observations",
+        "movement_threshold_pct": 5.0,
+        "interpretation": "Price is expected to stable by more than 5.0% over ~3 observations with 41.4% model confidence.",
+        "status": "SUCCESS"
+      }
+    },
+    "Cotton": {
+      "input": {
+        "crop": "cotton",
+        "market": "APMC Hinganghat",
+        "current_price": 7900.0,
+        "date": "2025-05-15"
+      },
+      "output": {
+        "crop": "cotton",
+        "market": "APMC Hinganghat",
+        "current_price": 7900.0,
+        "predicted_direction": "INCREASE",
+        "confidence": 0.488,
+        "probabilities": {
+          "decrease": 0.165,
+          "stable": 0.347,
+          "increase": 0.488
+        },
+        "forecast_horizon": "3 market observations",
+        "movement_threshold_pct": 1.0,
+        "interpretation": "Price is expected to increase by more than 1.0% over ~3 observations with 48.8% model confidence.",
+        "status": "SUCCESS"
+      }
+    }
+  }
+}

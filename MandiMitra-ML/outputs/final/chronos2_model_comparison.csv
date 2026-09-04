@@ -1,0 +1,5 @@
+crop,n_eval_samples,chronos_mae,chronos_rmse,chronos_mape,chronos_r2,persistence_mae,persistence_rmse,persistence_mape,ma7_mae,existing_ml_model,existing_ml_mae,improvement_vs_persistence_pct,best_method
+Rice,327,126.6772,315.4252,2.7512,0.825,120.9205,298.5066,2.6131,134.1782,Gradient Boosting,232.13,-4.76,persistence
+Tomato,411,405.509,545.9339,16.1421,0.6738,409.5864,604.744,16.0279,420.6465,Random Forest,434.362,1.0,persistence
+Wheat,1188,62.754,109.1155,2.0965,0.9487,67.553,127.6874,2.2773,71.2136,Gradient Boosting,68.239,7.1,chronos-2
+Cotton,80,135.177,169.4615,1.6615,0.3602,103.625,164.4023,1.2717,122.8036,Gradient Boosting,212.2251,-30.45,persistence

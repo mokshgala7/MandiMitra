@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <!-- Outer Glow / Background Circle -->
+  <circle cx="60" cy="60" r="54" fill="#F0FDF4" />
+  
+  <!-- Rice Bowl -->
+  <!-- Shadow -->
+  <ellipse cx="60" cy="98" rx="36" ry="7" fill="#E2E8F0" />
+  
+  <!-- Rice Grains Mound -->
+  <path d="M 28 66 C 28 42, 92 42, 92 66 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2.5" />
+  
+  <!-- Individual Rice Grains Details -->
+  <ellipse cx="50" cy="50" rx="4" ry="7" transform="rotate(-20 50 50)" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2" />
+  <ellipse cx="64" cy="48" rx="4" ry="7" transform="rotate(15 64 48)" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2" />
+  <ellipse cx="76" cy="54" rx="4" ry="7" transform="rotate(35 76 54)" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2" />
+  <ellipse cx="38" cy="56" rx="4" ry="7" transform="rotate(-35 38 56)" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2" />
+  <ellipse cx="58" cy="58" rx="3.5" ry="6" transform="rotate(5 58 58)" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.2" />
+
+  <!-- Bowl Body -->
+  <path d="M 24 64 Q 24 94, 60 94 Q 96 94, 96 64 Z" fill="#D97706" />
+  <path d="M 26 64 Q 26 91, 60 91 Q 94 91, 94 64 Z" fill="#F59E0B" />
+  <ellipse cx="60" cy="64" rx="36" ry="6" fill="#FCD34D" />
+  
+  <!-- Bowl Base / Foot -->
+  <path d="M 48 93 L 46 98 L 74 98 L 72 93 Z" fill="#B45309" />
+  
+  <!-- Green Paddy Leaf Accent -->
+  <path d="M 80 50 C 95 30, 95 18, 95 18 C 95 18, 82 24, 76 42" fill="#22C55E" stroke="#15803D" stroke-width="1.5" />
+  <path d="M 84 42 C 98 32, 104 22, 104 22 C 104 22, 92 28, 82 46" fill="#16A34A" stroke="#15803D" stroke-width="1.5" />
+
+  <!-- Cute Face on Bowl -->
+  <circle cx="50" cy="76" r="3" fill="#451A03" />
+  <circle cx="70" cy="76" r="3" fill="#451A03" />
+  <circle cx="49" cy="75" r="1" fill="#FFFFFF" />
+  <circle cx="69" cy="75" r="1" fill="#FFFFFF" />
+  <!-- Rosy cheeks -->
+  <ellipse cx="44" cy="79" rx="3" ry="1.5" fill="#EF4444" opacity="0.6" />
+  <ellipse cx="76" cy="79" rx="3" ry="1.5" fill="#EF4444" opacity="0.6" />
+  <!-- Smile -->
+  <path d="M 56 79 Q 60 84, 64 79" fill="none" stroke="#451A03" stroke-width="2" stroke-linecap="round" />
+</svg>

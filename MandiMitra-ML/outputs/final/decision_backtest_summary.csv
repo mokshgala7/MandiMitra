@@ -1,0 +1,5 @@
+crop,forecast_method,n_test_rows,n_sell_decisions,n_wait_decisions,direction_accuracy_pct,avg_price_gain_when_wait_recommended,avg_price_gain_when_sell_recommended,wait_correct_pct,benchmark_always_sell_avg_future_price,benchmark_always_wait_avg_gain,validation_mae_used
+rice,persistence,327,327,0,67.28,,33.09,,4126.36,33.09,232.13
+tomato,persistence,411,411,0,28.47,,-31.78,,2663.65,-31.78,434.36
+wheat,persistence,2367,2367,0,41.36,,1.87,,3002.24,1.87,68.24
+cotton,persistence,80,80,0,42.5,,4.12,,8072.31,4.12,212.23

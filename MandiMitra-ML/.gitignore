@@ -1,0 +1,33 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Data & Models (keep raw data ignored, include runtime features & models)
+data/raw/*
+!data/raw/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/maharashtra_*_features.csv
+
+models/*
+!models/.gitkeep
+!models/*.joblib
+!models/*.json
+
+outputs/*
+!outputs/.gitkeep
+!outputs/final/
+!outputs/final/*
+
+# IDEs & OS
+.vscode/
+.idea/
+.DS_Store

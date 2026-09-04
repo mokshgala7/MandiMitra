@@ -1,0 +1,30 @@
+crop,market,n_samples,chronos_mae,persistence_mae,improvement_pct
+Rice,APMC Alibagh,111,64.43,44.59,-44.49
+Rice,APMC Murud,111,64.43,44.59,-44.49
+Rice,APMC Palghar,105,258.28,282.3,8.51
+Tomato,APMC Kamthi,104,364.57,345.96,-5.38
+Tomato,APMC Panvel,106,494.49,504.34,1.95
+Tomato,Pune(Manjri),107,487.27,496.26,1.81
+Tomato,Pune(Pimpri),94,257.4,274.47,6.22
+Wheat,APMC Akola,47,43.13,44.77,3.65
+Wheat,APMC Amarawati,43,21.78,35.26,38.23
+Wheat,APMC Chattrapati Sambhajinagar,45,79.31,84.73,6.4
+Wheat,APMC Dhule,29,62.51,62.38,-0.2
+Wheat,APMC Hinganghat,33,32.86,27.88,-17.86
+Wheat,APMC Jalana,59,56.06,86.42,35.14
+Wheat,APMC Kalyan,84,106.66,104.52,-2.04
+Wheat,APMC Kopargaon,46,43.38,50.89,14.75
+Wheat,APMC Majalgaon,78,60.0,54.53,-10.04
+Wheat,APMC Malkapur,68,89.1,109.38,18.55
+Wheat,APMC Mumbai,96,80.22,75.0,-6.96
+Wheat,APMC Nagpur,91,42.63,48.9,12.83
+Wheat,APMC Paithan,58,63.57,81.12,21.64
+Wheat,APMC Rahata,24,62.48,64.88,3.69
+Wheat,APMC Sangli,69,79.52,76.81,-3.53
+Wheat,APMC Shevgaon,25,90.84,101.0,10.06
+Wheat,APMC Sillod,24,35.96,37.5,4.11
+Wheat,APMC Solapur,99,14.35,21.36,32.83
+Wheat,APMC Ulhasnagar,76,119.43,124.34,3.95
+Wheat,Lasalgaon(Niphad),56,35.73,34.88,-2.46
+Wheat,Shevgaon(Bodhegaon),38,58.83,53.29,-10.39
+Cotton,APMC Hinganghat,80,135.18,103.62,-30.45

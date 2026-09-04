@@ -1,0 +1,5 @@
+Crop,Best ML Model,ML MAE,ML RMSE,ML MAPE,ML R2,Persistence MAE,Persistence RMSE,Persistence MAPE,ML Improvement vs Persistence,Best ML Method,Best Overall Method
+Rice,Gradient Boosting,232.13,396.46,5.05,0.7236,120.92,,,-91.97,Gradient Boosting,persistence
+Tomato,Random Forest,434.362,549.8029,19.0385,0.6692,409.5864,604.744,16.0279,-6.0489,Random Forest,persistence
+Wheat,Gradient Boosting,68.239,107.6109,2.2389,0.9505,66.9079,127.1733,2.2432,-1.9895,Gradient Boosting,persistence
+Cotton,Gradient Boosting,212.2251,293.4315,2.57,-0.9184,103.625,164.4023,1.2717,-104.8011,Gradient Boosting,persistence

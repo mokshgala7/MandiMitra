@@ -1,0 +1,5 @@
+Crop,Current price,Persistence prediction,ML prediction,Difference between ML and persistence,ML model used,PASS/FAIL
+Rice,300.0,300.0,2921.49,2621.49,src/predict.py (Rice Model),PASS
+Tomato,300.0,300.0,731.63,431.63,src/multi_crop_predict.py (Tomato Model),PASS
+Wheat,300.0,300.0,2327.51,2027.5100000000002,src/multi_crop_predict.py (Wheat Model),PASS
+Cotton,300.0,300.0,6948.05,6648.05,src/multi_crop_predict.py (Cotton Model),PASS

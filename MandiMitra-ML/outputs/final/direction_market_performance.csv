@@ -1,0 +1,30 @@
+crop,market,n_samples,best_model,accuracy,actual_decrease_count,actual_stable_count,actual_increase_count,predicted_decrease_count,predicted_stable_count,predicted_increase_count
+Rice,APMC Alibagh,111,gradient_boosting,0.4054,0,108,3,7,48,56
+Rice,APMC Murud,111,gradient_boosting,0.4054,0,108,3,7,48,56
+Rice,APMC Palghar,105,gradient_boosting,0.4857,41,17,47,86,0,19
+Tomato,APMC Kamthi,104,random_forest,0.5577,31,51,22,37,34,33
+Tomato,APMC Panvel,106,random_forest,0.5,38,41,27,62,2,42
+Tomato,Pune(Manjri),107,random_forest,0.5047,41,33,33,41,6,60
+Tomato,Pune(Pimpri),94,random_forest,0.4468,38,31,25,21,28,45
+Wheat,APMC Akola,93,random_forest,0.5054,20,52,21,21,43,29
+Wheat,APMC Amarawati,86,random_forest,0.6512,12,63,11,17,47,22
+Wheat,APMC Chattrapati Sambhajinagar,90,random_forest,0.4444,27,33,30,33,19,38
+Wheat,APMC Dhule,57,random_forest,0.4912,15,27,15,19,16,22
+Wheat,APMC Hinganghat,65,random_forest,0.6462,7,49,9,7,49,9
+Wheat,APMC Jalana,118,random_forest,0.5085,31,61,26,25,46,47
+Wheat,APMC Kalyan,168,random_forest,0.4464,36,102,30,47,79,42
+Wheat,APMC Kopargaon,92,random_forest,0.5109,21,49,22,29,28,35
+Wheat,APMC Majalgaon,156,random_forest,0.5577,38,76,42,57,40,59
+Wheat,APMC Malkapur,136,random_forest,0.6029,47,39,50,57,19,60
+Wheat,APMC Mumbai,192,random_forest,0.7292,26,141,25,25,155,12
+Wheat,APMC Nagpur,181,random_forest,0.768,26,131,24,9,144,28
+Wheat,APMC Paithan,115,random_forest,0.5391,39,44,32,45,13,57
+Wheat,APMC Rahata,48,random_forest,0.5833,13,22,13,18,13,17
+Wheat,APMC Sangli,138,random_forest,0.529,29,77,32,28,81,29
+Wheat,APMC Shevgaon,49,random_forest,0.5714,14,17,18,22,7,20
+Wheat,APMC Sillod,48,random_forest,0.625,12,24,12,12,22,14
+Wheat,APMC Solapur,197,random_forest,0.9391,6,188,3,1,194,2
+Wheat,APMC Ulhasnagar,151,random_forest,0.5232,52,50,49,75,12,64
+Wheat,Lasalgaon(Niphad),112,random_forest,0.5179,15,77,20,21,62,29
+Wheat,Shevgaon(Bodhegaon),75,random_forest,0.48,16,38,21,22,18,35
+Cotton,APMC Hinganghat,80,gradient_boosting,0.6,19,42,19,34,39,7

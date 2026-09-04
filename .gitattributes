@@ -1,0 +1,16 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare binary files so Git doesn't modify line endings
+*.joblib binary
+*.pkl binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+
+# Shell scripts should always have LF line endings
+*.sh text eol=lf
