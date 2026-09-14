@@ -59,15 +59,118 @@ PYTHONPATH=backend python3 -m unittest backend/tests/test_full_stack_e2e.py
 
 ---
 
+
+---
+
+## 🏛️ Current Validated Architecture
+
+MandiMitra uses a hybrid decision-support architecture:
+
+1. Retrieve current mandi data.
+2. Validate market/data coverage.
+3. Select the crop's configured forecasting method.
+4. Check historical-data sufficiency.
+5. Run ML only when the configured and validated conditions are satisfied.
+6. Reject invalid/OOD ML outputs.
+7. Fall back to a validated baseline when required.
+8. Calculate road distance.
+9. Calculate transport cost.
+10. Calculate gross/net return.
+11. Compare present vs expected future economics.
+12. Produce the farmer-facing recommendation.
+
+This is the current production architecture.
+
+### Validated Hybrid Forecasting Architecture
+
+MandiMitra does NOT assume that an ML model should be used for every prediction. Forecasting is governed by crop configuration, trained-market coverage, historical-data sufficiency, input validity, out-of-distribution checks, model availability, and validated fallback methods.
+
+The production decision flow is:
+
+```text
+                    Forecast Request
+                          │
+                          ▼
+                 Check crop configuration
+                          │
+                          ▼
+              forecast_method_config.json
+                          │
+              ┌───────────┴───────────┐
+              │                       │
+       Valid configured ML      Persistence /
+              │                 validated baseline
+              ▼                       │
+      Validate market                 │
+      + history + data                │
+              │                       │
+       ┌──────┴──────┐                │
+       │             │                │
+     Valid         Invalid             │
+       │             │                │
+       ▼             ▼                ▼
+      ML          Fallback       Baseline result
+       │             │                │
+       └─────────────┴────────────────┘
+                     │
+                     ▼
+             Final validated forecast
+```
+
+`forecast_method_config.json` serves as the production source of truth for selecting the forecasting method. ML artifacts may exist even when production configuration selects a baseline. Runtime must respect the configured forecasting method, and the method should be surfaced truthfully to the frontend.
+
+**Current validated configuration:**
+- **Rice:** Persistence
+- **Wheat:** Chronos-2 (configured/available, active only if supported by implementation)
+
+### Forecasting Safety & Fallback
+
+MandiMitra deliberately avoids generating an ML prediction when the required conditions are not satisfied. Fallback can occur when:
+- the mandi was not part of the model's validated training coverage
+- insufficient historical observations exist
+- the model artifact is unavailable
+- input data is invalid
+- the raw model prediction fails validation/OOD checks
+
+When a valid current price exists, the system prefers a validated baseline rather than showing an unreliable ML prediction. When no usable price exists, the forecast is reported as unavailable. This is intentional system behavior, not an error.
+
+### Insufficient Historical Data
+
+The forecasting pipeline requires sufficient historical observations before attempting feature-based ML inference. The current validated minimum is **31 usable historical rows**. 
+
+If fewer than 31 usable observations are available:
+- ML is not executed.
+- The system does not fabricate historical rows, zero-pad missing history, or invent prices.
+- A validated persistence/recent-price fallback is used when a valid current price exists.
+- The UI/API communicates that limited historical data prevented ML forecasting.
+
+### Out-of-Distribution Prediction Protection
+
+The system validates raw ML predictions before exposing them as the final forecast. If an ML prediction is considered invalid or materially outside the validated input/data behavior, the raw prediction is rejected (NOT silently clamped to an arbitrary percentage). A validated fallback is used when possible, and the forecast method/status remains truthful.
+
+### Backend as Economic Source of Truth
+
+The backend is authoritative for:
+- distance
+- billable distance
+- transport cost
+- gross value
+- net value
+- final validated forecast used for recommendation
+
+The frontend may perform display-level enrichment/calculation where required by the existing implementation, but it must remain synchronized with backend values and must not contradict authoritative results.
+
 ## 🏛️ System Architecture
 
 ```mermaid
 graph TD
     A[React/Vite Frontend :5173] -->|Auth, Geolocation, Filters| B[FastAPI Backend :8000]
     B -->|User Data, Agmarknet Prices, Mandi Coordinates| C[(MySQL Database :3306)]
-    B -->|Exact 40-feature inference| D[MandiMitra-ML .joblib Models]
+    B -->|Forecast Configuration| D[ML / Validated Baseline]
+    D -->|Validated Forecast| B
     B -->|Live Temperature & Rain Risk| E[Open-Meteo Weather API]
-    B -->|Reverse Geocoding Fallback| F[Nominatim OpenStreetMap]
+    B -->|Road Routing| F[OSRM]
+    B -->|Reverse Geocoding Fallback| G[Nominatim OpenStreetMap]
 ```
 
 ### Core Features Implemented:
@@ -75,11 +178,11 @@ graph TD
 2. **Crop Selection**: Supports Wheat, Rice, Tomato, and Cotton.
 3. **KG to Quintal Auto-Conversion**: 1 Quintal = 100 KG.
 4. **Middleman Option**: Net payout comparison deducting commission and fees.
-5. **500 KM Mandi Discovery**: Haversine distance calculation to all registered Agmarknet mandis.
-6. **Transparent Transportation Deduction**: ₹10/km one-way deduction (`distance * 10`).
+5. **500 KM Mandi Discovery**: Backend filters mandis using road distance where available within a 500 km radius.
+6. **Transparent Transportation Deduction**: Backend-authoritative ₹10/km one-way deduction using integer billable-kilometre calculation.
 7. **Best Option Badge**: Mandi with the highest net value is prominently highlighted (`⭐ BEST OPTION`).
-8. **ML 2–3 Day Price Forecasting**: Zero-leakage 40-feature pipeline feeding unmodified scikit-learn models in `MandiMitra-ML/`.
-9. **Decision Recommendation Engine**: `SELL TODAY` vs `HOLD FOR 2–3 DAYS` comparison factoring future price, holding costs, and weather.
+8. **2–3 Day Price Forecasting**: A zero-leakage 40-feature forecasting pipeline with crop-specific production methods, trained-market validation, insufficient-data fallbacks, and OOD prediction safeguards.
+9. **Decision Recommendation Engine**: `SELL TODAY` vs `HOLD FOR 2–3 DAYS` comparison factoring the final validated future price, holding costs, and contextual weather information.
 10. **Recent Searches**: Persisted in MySQL and reloadable with a single click.
 
 ---
@@ -369,17 +472,15 @@ Do not hardcode them into the application.
 
 # 10. Automatic Distance Calculation
 
-The backend should calculate:
+The validated distance calculation flow is:
 
-Farmer Location → Mandi Location
+Farmer coordinates → Mandi coordinates → OSRM road routing → Road distance in KM → Transport calculation
 
-The distance must be returned in KM.
+OSRM is preferred because transportation follows the road network. Haversine/geodesic distance may be used for geographic filtering or as a routing fallback, but it is not described as the final road distance whenever an OSRM route is successfully available. 
 
-The frontend should display:
+If OSRM routing is unavailable, the system uses a validated estimated-distance fallback (currently 1.22 factor). An estimated road-distance fallback is used when routing is unavailable, and the UI distinguishes estimated distance from successfully routed distance.
 
-📍 82 KM away
-
-The frontend should NOT hardcode individual mandi distances.
+Road distance can exceed straight-line distance because road routing follows the available network (e.g., Kalyan straight-line is approx. 45 km, but actual OSRM road route is approx. 55 km). The actual OSRM output is dynamic and should not be hardcoded.
 
 ---
 
@@ -389,24 +490,18 @@ MandiMitra uses:
 
 ₹10 per KM
 
-Transportation is ONE WAY.
+Transportation is ONE WAY. Final billable distance uses the implemented integer-kilometre billing rule.
 
 Formula:
 
-transport_cost = distance_km × 10
+transport_cost = billable_distance_km × ₹10
 
-Example:
+Examples:
 
-Distance = 80 KM
+23.76 km → 24 billable km → ₹240
+55 km → 55 billable km → ₹550
 
-Transport Cost = 80 × ₹10 = ₹800
-
-The backend should preferably return:
-
-distance_km
-transport_cost
-
-The frontend displays these values.
+The backend is the authoritative source for these values, and the frontend remains synchronized with this calculation.
 
 ---
 
@@ -715,6 +810,8 @@ Total unique mandi entries across crop datasets:
 
 360
 
+*Note: 'Registered mandi coverage' does not equal 'ML-trained market coverage'. For example, the validated Rice ML model trained markets include APMC Alibagh, APMC Murud, and APMC Palghar. If a mandi is outside the model's validated trained-market scope, a validated fallback is used instead of blindly generating an out-of-domain ML prediction.*
+
 Primary price field:
 
 Modal Price (₹/Quintal)
@@ -723,13 +820,26 @@ The frontend must receive this data from the backend/ML layer.
 
 Do not hardcode these records into the frontend.
 
+### Model Feature Pipeline & Baseline vs ML Performance
+The validated ML pipeline contains exactly 40 inference features (including price lags, rolling means, cyclical date features, price spread, and momentum). Training and inference use the exact same feature schema and order. The pipeline was rigorously validated for zero data leakage.
+
+MandiMitra uses the forecasting method that is validated/configured for the crop and data context. For instance, in the validated Rice evaluation:
+- Persistence baseline: MAE ≈ ₹120.92, RMSE ≈ ₹298.51, MAPE ≈ 2.61%
+- Gradient Boosting: MAE ≈ ₹232.13, RMSE ≈ ₹396.46, MAPE ≈ 5.05%, R² ≈ 0.7236
+
+Therefore, Persistence outperformed the tested Gradient Boosting model for the evaluated Rice dataset.
+
 ---
 
 # 22. ML Price Prediction
 
-The ML system should provide the expected crop price for the next:
+The validated architecture supports a final forecast and may present a trajectory for the next 2-3 days. 
 
-2–3 days.
+MandiMitra should communicate whether a displayed forecast comes from:
+- ML model
+- persistence/recent-price baseline
+- another configured forecasting method
+- fallback due to insufficient/invalid data
 
 Required information:
 
@@ -737,6 +847,8 @@ Current Price
 Predicted Day 1
 Predicted Day 2
 Predicted Day 3
+
+Day 1 and Day 2 are an Estimated Trajectory when derived from the final supported forecast. Day 3 represents the Final Expected Price (final supported forecast value).
 
 Example structure:
 
@@ -1128,6 +1240,12 @@ Never hardcode:
 - Sell/Hold results
 - Individual mandi transportation costs
 - Weather information
+- OSRM distances
+- Fallback distances
+- Forecast values
+- Forecast method
+- Recommendation result
+- Final transport economics
 
 These should come from backend/ML APIs.
 
@@ -1206,16 +1324,18 @@ The frontend should never independently maintain the 500 KM mandi list.
 
 # 34. Final Recommendation Logic
 
-The system should combine:
+The system should base recommendations on the FINAL VALIDATED forecast, combining:
 
 Current mandi price
 Historical price trend
-ML predicted price
+Final Validated Expected Price
 Farmer quantity
-Mandi distance
+Mandi road distance
 Transportation cost
+Holding/storage costs
 Middleman price
 Middleman charges
+Spoilage/weather-related considerations where implemented
 
 The farmer should receive a simple final result.
 
@@ -1459,10 +1579,12 @@ The ML layer is responsible for:
 
 - Historical price analysis
 - Feature engineering
-- Price prediction
-- 2–3 day forecast
-- Price trend
-- Sell/Hold signal
+- Model inference where configured and valid
+- Trained-market validation
+- OOD validation
+- Fallback coordination where implemented
+- Forecast output
+- Trend information where implemented
 
 ---
 
