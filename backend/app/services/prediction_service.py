@@ -89,6 +89,28 @@ def _extract_date_fields_vectorised(date_series: pd.Series) -> pd.DataFrame:
 class PredictionService:
     def __init__(self):
         self.models = {}
+        self.metadata = {}
+
+    def load_metadata(self, crop: str) -> Dict[str, Any]:
+        crop_clean = crop.lower()
+        if crop_clean not in self.metadata:
+            meta_paths = {
+                "rice": MODELS_DIR / "model_metadata.json",
+                "tomato": MODELS_DIR / "tomato_model_metadata.json",
+                "wheat": MODELS_DIR / "wheat_model_metadata.json",
+                "cotton": MODELS_DIR / "cotton_model_metadata.json",
+            }
+            path = meta_paths.get(crop_clean)
+            if path and path.exists():
+                import json
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        self.metadata[crop_clean] = json.load(f)
+                except Exception:
+                    self.metadata[crop_clean] = {}
+            else:
+                self.metadata[crop_clean] = {}
+        return self.metadata[crop_clean]
 
     def load_model(self, crop: str):
         if crop not in self.models:
@@ -147,8 +169,7 @@ class PredictionService:
 
         # --- Calendar features (no pd.to_datetime — avoids Py3.14 hang) ---
         date_df = _extract_date_fields_vectorised(out["Price Date"])
-        for col in date_df.columns:
-            out[col] = date_df[col].to_numpy()
+        out = pd.concat([out.reset_index(drop=True), date_df.reset_index(drop=True)], axis=1)
 
         # Cyclical encoding
         m_vals = out["month"].to_numpy(dtype=float)
@@ -194,36 +215,101 @@ class PredictionService:
                 variety = best_variety
                 grade = best_grade
 
-        if len(group_df) < 31:
-            raise ValueError(
-                f"Insufficient historical data for {market} ({variety} / {grade}). "
-                f"Found {len(group_df)} rows, need at least 31 for full feature engineering."
-            )
+        if len(group_df) == 0:
+             raise ValueError(f"No historical prices available for {market}.")
 
-        # 3. Sort chronologically (no pd.to_datetime)
+        # 3. Sort chronologically
         group_df["_date_sort"] = group_df["Price Date"].apply(_date_sortable)
         group_df = group_df.sort_values("_date_sort").reset_index(drop=True)
+        
+        # 4. Handle Insufficient Data
+        insufficient_data = len(group_df) < 31
+        notice = None
 
-        # 4. Engineer features
-        features_df = self.engineer_features_for_inference(group_df)
+        if insufficient_data:
+            latest_row = group_df.iloc[-1:]
+            current_price_str = str(latest_row["Modal Price"].values[0]).replace(",", "")
+            current_price = float(pd.to_numeric(current_price_str, errors="coerce"))
+            if pd.isna(current_price):
+                current_price = 0.0
+            notice = f"Limited historical data — ML unavailable for this mandi/variety. Found {len(group_df)} rows, need 31."
+            method_used = "Persistence Baseline"
+            predicted_day_3 = current_price
+            prediction_date_str = str(latest_row["Price Date"].values[0]).strip()
+        else:
+            # 5. Engineer features
+            features_df = self.engineer_features_for_inference(group_df)
+            latest_row = features_df.iloc[-1:]
+            current_price = float(latest_row["Modal Price"].values[0])
+            prediction_date_str = str(latest_row["Price Date"].values[0]).strip()
+            
+            # 6. Build feature matrix
+            X_infer = latest_row[REQUIRED_FEATURES].copy()
 
-        # 5. Extract latest row
-        latest_row = features_df.iloc[-1:]
-        current_price = float(latest_row["Modal Price"].values[0])
+            # 7. Determine configured forecast method
+            meta = self.load_metadata(crop)
+            trained_markets = [m.strip().lower() for m in meta.get("markets", [])]
+            is_trained_market = market.strip().lower() in trained_markets
 
-        # 6. Build feature matrix in exact training order
-        X_infer = latest_row[REQUIRED_FEATURES].copy()
+            config_file = MODELS_DIR / "forecast_method_config.json"
+            config_method = "ml" # default if not specified
+            if config_file.exists():
+                import json
+                try:
+                    with open(config_file) as f:
+                        cfg = json.load(f)
+                        config_method = cfg.get(crop.lower(), {}).get("method", "ml").lower()
+                except Exception:
+                    pass
+            
+            # Determine method_used logically
+            if config_method == "persistence":
+                method_used = "Persistence Baseline"
+            elif config_method == "chronos-2":
+                method_used = "Chronos-2 Baseline"
+            elif config_method == "sma":
+                method_used = "Recent Mean / SMA"
+            elif config_method == "ema":
+                method_used = "EMA"
+            elif not is_trained_market:
+                method_used = "Baseline Fallback"
+            else:
+                method_used = "Gradient Boosting / ML"
 
-        # 7. Load model and predict
-        model = self.load_model(crop)
-        predicted_day_3 = float(model.predict(X_infer)[0])
+            # 8. Run Prediction / Fallback Logic
+            if method_used == "Gradient Boosting / ML":
+                try:
+                    model = self.load_model(crop)
+                    raw_pred = float(model.predict(X_infer)[0])
+                    max_allowed = current_price * 1.02
+                    min_allowed = current_price * 0.98
+                    if raw_pred > max_allowed or raw_pred < min_allowed:
+                        # REJECT: Outside validated range. Fallback to Persistence.
+                        method_used = "Persistence Baseline"
+                        predicted_day_3 = current_price
+                        notice = "ML prediction rejected — outside validated range"
+                    else:
+                        predicted_day_3 = round(raw_pred, 2)
+                except Exception as e:
+                    method_used = "Persistence Baseline"
+                    predicted_day_3 = current_price
+                    notice = "ML inference failed — using fallback"
+            else:
+                # Baseline calculation for non-ML methods (apply slight momentum if possible)
+                p_change = 0.0
+                if "price_change_3_pct" in latest_row.columns:
+                    raw_pct = latest_row["price_change_3_pct"].values[0]
+                    if pd.notna(raw_pct):
+                        p_change = float(raw_pct)
+                        p_change = max(-0.015, min(0.015, p_change))
+                predicted_day_3 = round(current_price * (1.0 + p_change), 2)
 
-        # 8. Interpolate Day 1 and Day 2 (model predicts only price_after_3_observations)
+        # 9. Interpolate Day 1 and Day 2
         diff  = predicted_day_3 - current_price
         day_1 = current_price + diff * (1 / 3)
         day_2 = current_price + diff * (2 / 3)
 
-        # 9. Trend derivation
+        # 10. Trend derivation based on FINAL validated forecast
         trend = "stable"
         if predicted_day_3 > current_price * 1.01:
             trend = "rising"
@@ -236,9 +322,9 @@ class PredictionService:
             "day_3": round(predicted_day_3, 2)
         }
 
-        return {
+        resp = {
             "crop": crop,
-            "mandi_id": "",  # Populated by route handler
+            "mandi_id": "",
             "market": market,
             "variety": variety,
             "grade": grade,
@@ -246,6 +332,10 @@ class PredictionService:
             "forecast": forecast_obj,
             "predictions": forecast_obj,
             "trend": trend,
-            "prediction_date": str(latest_row["Price Date"].values[0]).strip()
+            "prediction_date": prediction_date_str,
+            "forecast_method": method_used
         }
-
+        if notice:
+            resp["notice"] = notice
+            
+        return resp

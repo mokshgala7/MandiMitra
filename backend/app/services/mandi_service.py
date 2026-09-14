@@ -13,6 +13,8 @@ elif (BASE_DIR / "public" / "data").exists():
 else:
     DATA_DIR = BASE_DIR / "public" / "data"
 
+from app.services.routing_service import RoutingService
+
 MANDI_MASTER_FILE = DATA_DIR / "mandi_master.json"
 
 def calculate_haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
@@ -41,6 +43,7 @@ class MandiService:
     def __init__(self):
         self.master_data = []
         self.master_map = {}
+        self.routing_service = RoutingService()
         self.load_master_data()
 
     def load_master_data(self):
@@ -116,6 +119,26 @@ class MandiService:
                     "price_date": str(row["Price Date"]).strip()
                 })
                 
+        # Calculate real road driving distance via OSRM with detour fallback
+        if results:
+            dest_payload = [
+                {
+                    "mandi_id": r["mandi_id"],
+                    "latitude": r["latitude"],
+                    "longitude": r["longitude"],
+                    "aerial_distance_km": r["distance_km"]
+                }
+                for r in results
+            ]
+            road_distances = self.routing_service.calculate_road_distances(latitude, longitude, dest_payload)
+            for r in results:
+                r["aerial_distance_km"] = r["distance_km"]
+                r["distance_km"] = road_distances.get(r["mandi_id"], r["distance_km"])
+                r["is_road_distance"] = True
+
+            # Filter so that final driving road distance is strictly within radius_km
+            results = [r for r in results if r["distance_km"] <= radius_km]
+
         results.sort(key=lambda x: x["distance_km"])
         
         return {

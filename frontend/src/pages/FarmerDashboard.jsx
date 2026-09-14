@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import {
@@ -108,6 +108,49 @@ const FarmerDashboard = () => {
   // Recommendation State
   const [recommendation, setRecommendation] = useState(null);
   const [isLoadingRecommendation, setIsLoadingRecommendation] = useState(false);
+  const [selectedMandi, setSelectedMandi] = useState(null);
+
+  // Active recommendation based on user-selected / clicked mandi
+  const displayRec = useMemo(() => {
+    if (!recommendation) return null;
+    const target = selectedMandi || predictionState.targetMandi;
+    if (!target || !recommendation.mandi_recommendations?.length) {
+      return recommendation;
+    }
+    const found = recommendation.mandi_recommendations.find(m => 
+      (m.mandi_id && target.mandi_id && m.mandi_id === target.mandi_id) ||
+      (m.mandi_name && target.mandi_name && m.mandi_name.toLowerCase() === target.mandi_name.toLowerCase()) ||
+      (m.mandi_name && target.mandi_name && m.mandi_name.toLowerCase().includes(target.mandi_name.toLowerCase())) ||
+      (target.mandi_name && m.mandi_name && target.mandi_name.toLowerCase().includes(m.mandi_name.toLowerCase()))
+    );
+
+    if (!found) return recommendation;
+
+    return {
+      ...recommendation,
+      recommendation: found.better_decision,
+      better_decision: found.better_decision,
+      better_percentage: found.better_percentage,
+      potentially_more_amount: found.advantage_amount,
+      current_net_value: found.current_net,
+      expected_future_net_value: found.future_net,
+      expected_future_price: found.future_price,
+      potential_difference: found.potential_diff,
+      best_mandi: {
+        mandi_id: found.mandi_id,
+        mandi_name: found.mandi_name,
+        district: found.district,
+        state: found.state,
+        distance_km: found.distance_km,
+        price_per_quintal: found.current_price,
+        transport_cost: found.transport_cost,
+        gross_value: found.current_gross,
+        net_value: found.current_net
+      },
+      reason: found.reason,
+      statement: found.reason
+    };
+  }, [recommendation, selectedMandi, predictionState.targetMandi]);
 
   // Recent Searches State
   const [recentSearches, setRecentSearches] = useState([]);
@@ -227,6 +270,7 @@ const FarmerDashboard = () => {
     if (!selectedCrop || !location) return;
 
     setIsSearchingMandis(true);
+    setSelectedMandi(null);
     setPredictionState({ status: 'idle', errorMsg: '', data: null, targetMandi: null });
     setRecommendation(null);
 
@@ -290,6 +334,7 @@ const FarmerDashboard = () => {
 
   // 8. Handle Forecast Request for a Mandi
   const handleRequestForecast = async (mandi) => {
+    setSelectedMandi(mandi);
     setPredictionState({
       status: 'loading',
       errorMsg: '',
@@ -325,9 +370,10 @@ const FarmerDashboard = () => {
     const q = quintals > 0 ? quintals : 10;
 
     const enriched = nearbyMandisResponse.mandis.map((m) => {
-      const gross = Math.round(m.latest_price * q);
-      const transport = Math.round(m.distance_km * 10); // ₹10/km
-      const net = Math.round(gross - transport);
+      const roundedDist = Math.round(m.distance_km);
+      const transport = Math.round(roundedDist * 10 * 100) / 100; // ₹10/km using rounded distance
+      const gross = Math.round(m.latest_price * q * 100) / 100;
+      const net = Math.round((gross - transport) * 100) / 100;
       return {
         ...m,
         gross_value: gross,
@@ -402,18 +448,35 @@ const FarmerDashboard = () => {
 
   const getLocalizedReason = (rec) => {
     if (!rec) return '';
+    const mandiName = rec.best_mandi?.mandi_name || 'Mandi';
+    const cropName = language === 'mr' ? (selectedCrop?.marathiName || rec.crop) : language === 'hi' ? (selectedCrop?.hindiName || rec.crop) : (selectedCrop?.name || rec.crop);
+    const moreAmount = rec.potentially_more_amount || Math.abs(rec.potential_difference || 0);
+    const moreFormatted = Math.round(moreAmount).toLocaleString('en-IN');
+    const currentNetFormatted = Math.round(rec.current_net_value).toLocaleString('en-IN');
+    const futureNetFormatted = Math.round(rec.expected_future_net_value).toLocaleString('en-IN');
+    const futurePriceFormatted = Math.round(rec.expected_future_price).toLocaleString('en-IN');
+    const pct = rec.better_percentage ? `${rec.better_percentage}%` : '';
+
     if (language === 'hi') {
-      if (rec.recommendation === 'SELL TODAY') {
-        return 'आज ही बेचें! वर्तमान मंडी भाव सबसे अनुकूल है और परिवहन के बाद अधिकतम शुद्ध लाभ सुनिश्चित करता है।';
+      if (rec.recommendation === 'HOLD FOR 2–3 DAYS') {
+        return `2–3 दिन रुककर बेचना ${pct ? `${pct} ` : ''}(+₹${moreFormatted}) बेहतर है! ${mandiName} के लिए एआई पूर्वानुमान के अनुसार ${cropName} के भाव ₹${futurePriceFormatted}/क्विंटल तक बढ़ने का अनुमान है। रुकने से आप संभावित रूप से ₹${moreFormatted} अधिक कमा सकते हैं (अनुमानित भावी शुद्ध लाभ: ₹${futureNetFormatted} बनाम आज ₹${currentNetFormatted})।`;
       } else {
-        return '2–3 दिन रुकें! एआई पूर्वानुमान के अनुसार आने वाले दिनों में भाव बढ़ने की संभावना है, जिससे आपको अधिक लाभ मिल सकता है।';
+        if (rec.potential_difference < 0) {
+          return `आज ही बेचना ${pct ? `${pct} ` : ''}(+₹${moreFormatted}) बेहतर है! ${mandiName} के लिए एआई पूर्वानुमान के अनुसार भाव ₹${futurePriceFormatted}/क्विंटल तक गिरने का अनुमान है। आज बेचने से आप 2–3 दिन इंतजार करने की तुलना में ₹${moreFormatted} अधिक कमाते हैं (वर्तमान शुद्ध लाभ: ₹${currentNetFormatted} बनाम 2–3 दिन बाद ₹${futureNetFormatted})।`;
+        } else {
+          return `आज ही बेचना बेहतर है! ${mandiName} के लिए भाव लगभग स्थिर (~₹${futurePriceFormatted}/क्विंटल) रहने का अनुमान है। आज ₹${currentNetFormatted} का शुद्ध लाभ सुरक्षित करना सर्वोत्तम है, जिससे फसल भंडारण और मौसम का जोखिम नहीं रहेगा।`;
+        }
       }
     }
     if (language === 'mr') {
-      if (rec.recommendation === 'SELL TODAY') {
-        return 'आजच विक्री करा! सध्याचा बाजारभाव अनुकूल असून वाहतूक खर्च वजा जाता सर्वाधिक निव्वळ नफा मिळत आहे.';
+      if (rec.recommendation === 'HOLD FOR 2–3 DAYS') {
+        return `२–३ दिवस थांबून विक्री करणे ${pct ? `${pct} ` : ''}(+₹${moreFormatted}) अधिक फायदेशीर आहे! ${mandiName} साठीच्या एआई अंदाजानुसार ${cropName} चे भाव ₹${futurePriceFormatted}/क्विंटलपर्यंत वाढण्याची शक्यता आहे. थांबल्यास तुम्हाला संभाव्य ₹${moreFormatted} जास्त निव्वळ नफा मिळू शकतो (भावी निव्वळ नफा: ₹${futureNetFormatted} विरुद्ध आज ₹${currentNetFormatted})!`;
       } else {
-        return '२–३ दिवस थांबा! एआय अंदाजानुसार पुढील काही दिवसांत बाजारभाव वाढण्याची शक्यता असून अधिक नफा मिळू शकतो.';
+        if (rec.potential_difference < 0) {
+          return `आजच विक्री करणे ${pct ? `${pct} ` : ''}(+₹${moreFormatted}) अधिक फायदेशीर आहे! ${mandiName} साठीच्या एआई अंदाजानुसार भाव ₹${futurePriceFormatted}/क्विंटलपर्यंत घसरण्याची शक्यता आहे. आजच विक्री केल्यास २–३ दिवस थांबण्याच्या तुलनेत तुम्हाला ₹${moreFormatted} अधिक मिळतील (आजचा निव्वळ नफा: ₹${currentNetFormatted} विरुद्ध भावी निव्वळ नफा: ₹${futureNetFormatted})।`;
+        } else {
+          return `आजच विक्री करणे अधिक फायदेशीर आहे! ${mandiName} साठीच्या एआई अंदाजानुसार बाजारभाव स्थिर (~₹${futurePriceFormatted}/क्विंटल) राहण्याची शक्यता आहे. आजच ₹${currentNetFormatted} चा निव्वळ नफा सुरक्षित करणे योग्य ठरेल, ज्यामुळे साठवणूक व हवामानाचा धोका टळेल।`;
+        }
       }
     }
     return rec.reason;
@@ -930,10 +993,13 @@ const FarmerDashboard = () => {
                 {getSortedMandis().map((mandi, idx) => (
                   <div
                     key={idx}
-                    className={`relative rounded-2xl p-5 transition-all duration-200 bg-white shadow-xs flex flex-col justify-between ${
-                      mandi.is_best
-                        ? 'border-2 border-amber-400 ring-2 ring-amber-400/20 bg-gradient-to-b from-amber-50/20 to-white'
-                        : 'border border-gray-200 hover:border-emerald-300 hover:shadow-sm'
+                    onClick={() => setSelectedMandi(mandi)}
+                    className={`relative rounded-2xl p-5 transition-all duration-200 bg-white shadow-xs flex flex-col justify-between cursor-pointer ${
+                      (selectedMandi?.mandi_id === mandi.mandi_id || predictionState.targetMandi?.mandi_id === mandi.mandi_id)
+                        ? 'border-2 border-emerald-500 ring-2 ring-emerald-500/20 shadow-sm'
+                        : mandi.is_best
+                          ? 'border-2 border-amber-400 ring-2 ring-amber-400/20 bg-gradient-to-b from-amber-50/20 to-white'
+                          : 'border border-gray-200 hover:border-emerald-300 hover:shadow-sm'
                     }`}
                   >
                     {/* BEST OPTION BADGE */}
@@ -998,7 +1064,7 @@ const FarmerDashboard = () => {
         )}
 
         {/* ─── STEP 5: FINAL SELLING RECOMMENDATION ENGINE CARD ─── */}
-        {recommendation && (
+        {displayRec && (
           <section ref={recommendationRef} className="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-emerald-100">
             <StepTitle
               number="5"
@@ -1007,7 +1073,7 @@ const FarmerDashboard = () => {
             />
 
             <div className={`mt-4 rounded-3xl p-6 sm:p-8 border-2 ${
-              recommendation.recommendation === 'SELL TODAY'
+              displayRec.recommendation === 'SELL TODAY'
                 ? 'bg-emerald-50/50 border-emerald-500 ring-2 ring-emerald-500/10'
                 : 'bg-amber-50/50 border-amber-500 ring-2 ring-amber-500/10'
             }`}>
@@ -1015,25 +1081,25 @@ const FarmerDashboard = () => {
                 <div>
                   <div className="flex items-center gap-3">
                     <span className={`px-4 py-1.5 rounded-full text-sm font-black tracking-wide uppercase shadow-xs ${
-                      recommendation.recommendation === 'SELL TODAY'
+                      displayRec.recommendation === 'SELL TODAY'
                         ? 'bg-emerald-600 text-white'
                         : 'bg-amber-600 text-white'
                     }`}>
-                      {recommendation.recommendation === 'SELL TODAY' ? t('sellToday') : t('holdDays')}
+                      {displayRec.recommendation === 'SELL TODAY' ? t('sellToday') : t('holdDays')}
                     </span>
                     <span className="text-xs text-gray-500 font-semibold">
-                      {t('produceLabel')} {recommendation.quantity_kg} KG ({recommendation.quantity_quintals} {t('quintalsLabel', { q: '' }).trim()})
+                      {t('produceLabel')} {displayRec.quantity_kg} KG ({displayRec.quantity_quintals} {t('quintalsLabel', { q: '' }).trim()})
                     </span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mt-3 leading-tight">
-                    {getLocalizedReason(recommendation)}
+                    {getLocalizedReason(displayRec)}
                   </h3>
 
-                  {recommendation.weather_advisory && (
+                  {displayRec.weather_advisory && (
                     <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-gray-700 bg-white/70 px-3 py-2 rounded-xl border border-gray-200/60 w-fit">
                       <CloudSun size={16} className="text-amber-600" />
-                      <span>{t('weatherFactor')} {getLocalizedWeatherAdvisory(recommendation.weather_advisory)}</span>
+                      <span>{t('weatherFactor')} {getLocalizedWeatherAdvisory(displayRec.weather_advisory)}</span>
                     </div>
                   )}
                 </div>
@@ -1043,21 +1109,21 @@ const FarmerDashboard = () => {
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-gray-500">{t('currentBestNet')}</span>
                     <span className="font-extrabold text-gray-900 text-sm">
-                      ₹{Math.round(recommendation.current_net_value).toLocaleString('en-IN')}
+                      ₹{Math.round(displayRec.current_net_value).toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-gray-500">{t('predictedFutureNet')}</span>
                     <span className="font-extrabold text-primary-700 text-sm">
-                      ₹{Math.round(recommendation.expected_future_net_value).toLocaleString('en-IN')}
+                      ₹{Math.round(displayRec.expected_future_net_value).toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <div className="border-t border-gray-100 pt-2 flex justify-between items-center text-xs">
                     <span className="text-gray-500">{t('expectedDiff')}</span>
-                    <span className={`font-black text-sm ${recommendation.potential_difference >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
-                      {recommendation.potential_difference >= 0 ? '+' : ''}₹{Math.round(recommendation.potential_difference).toLocaleString('en-IN')}
+                    <span className={`font-black text-sm ${displayRec.potential_difference >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                      {displayRec.potential_difference >= 0 ? '+' : ''}₹{Math.round(displayRec.potential_difference).toLocaleString('en-IN')}
                     </span>
                   </div>
                 </div>
@@ -1107,21 +1173,25 @@ const FarmerDashboard = () => {
                       ₹{predictionState.data.current_price} <span className="text-sm font-semibold text-amber-800">/ Quintal</span>
                     </div>
 
-                    <div className="text-xs uppercase font-bold text-amber-800 mb-3">{t('expected3Day')}</div>
+                    <div className="text-xs uppercase font-bold text-amber-800 mb-3">Estimated Trajectory (Day 1-3)</div>
                     <div className="grid grid-cols-3 gap-3">
-                      <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center">
+                      <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center opacity-70">
                         <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">{t('tomorrow')}</div>
                         <div className="text-lg font-extrabold text-gray-900">₹{predictionState.data.forecast.day_1}</div>
                       </div>
-                      <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center">
+                      <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center opacity-85">
                         <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">{t('day2')}</div>
                         <div className="text-lg font-extrabold text-gray-900">₹{predictionState.data.forecast.day_2}</div>
                       </div>
-                      <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center">
-                        <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">{t('day3')}</div>
+                      <div className="bg-white p-3.5 rounded-xl border border-amber-200 shadow-2xs text-center border-b-4 border-b-amber-500">
+                        <div className="text-[10px] uppercase font-bold text-amber-600 mb-1">{predictionState.data.forecast_method || 'Forecast'} (Day 3)</div>
                         <div className="text-lg font-extrabold text-gray-900">₹{predictionState.data.forecast.day_3}</div>
                       </div>
                     </div>
+                    <div className="text-[10px] text-amber-700/80 mt-2 italic">* Day 1 & 2 are estimated trajectory points leading to the Day 3 forecast.</div>
+                    {predictionState.data.notice && (
+                      <div className="text-[10px] text-red-600 font-semibold mt-1 bg-red-50 p-2 rounded border border-red-100">{predictionState.data.notice}</div>
+                    )}
                   </div>
 
                   <div className="w-full sm:w-48 bg-white rounded-xl border border-amber-200 shadow-2xs p-4 flex flex-col justify-center items-center">

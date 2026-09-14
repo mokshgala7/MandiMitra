@@ -17,8 +17,8 @@ load_dotenv()
 # ==========================================
 
 supabase = create_client(
-    os.getenv("SUPABASE_URL"),
-    os.getenv("SUPABASE_KEY")
+    os.getenv("SUPABASE_URL", "http://localhost:54321"),
+    os.getenv("SUPABASE_KEY", "dummy_key")
 )
 
 
